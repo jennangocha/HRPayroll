@@ -13,6 +13,10 @@ private static UserController instance = new UserController();
 	
 	public static UserController getInstance() { return instance; }
 	
+	public User addNewUser(User User) {
+		return dataAccess.add(User.getUsername(), User);
+	}
+	
 	public User getUserByUsername(String id) {
 		return dataAccess.get(id);
 	}	

@@ -57,7 +57,9 @@ public class Login extends Application{
 	
 	private void setGUI() {
 		loginStage.setTitle("Login");
-		
+		/*Default login*/
+		txtUserName.setText("admin");
+		txtPassword.setText("admin");
 		// Arrange buttons in a 2x1 grid
 		
 		lblTitle.setStyle("-fx-font: 24 arial;");

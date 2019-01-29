@@ -27,12 +27,9 @@ public class MainMenu extends Stage{
 	
 	private GridPane grid = null;
 	
-	private Stage mainMenuStage;
-	
 	public MainMenu(User user,Stage ps) {
 		this.user=user;
-		this.mainMenuStage=ps;
-		
+				
 		setGUI();
 		setEvent();
 		setOption();
@@ -77,6 +74,23 @@ public class MainMenu extends Stage{
 				// TODO Auto-generated method stub
 				close();
 				Login.show();
+			}
+		});
+		
+		btnPayslip.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+				Stage stage = new Stage();
+				
+				stage.setTitle("Generate Payslip");
+				stage.setWidth(300);
+				stage.setHeight(700);
+				
+				
+				GeneratePayslip payslip=new GeneratePayslip(user,stage);
+				payslip.show();
 			}
 		});
 	}

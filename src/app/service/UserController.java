@@ -20,4 +20,6 @@ private static UserController instance = new UserController();
 	public User getUserByUsername(String id) {
 		return dataAccess.get(id);
 	}	
+	
+	
 }

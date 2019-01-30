@@ -4,7 +4,7 @@ import app.domain.AccessLevel;
 import app.domain.User;
 import app.service.UserController;
 
-public class UserData {
+class UserData {
 	public static void load() {
 		UserController controller = UserController.getInstance();
 		User user1 = new User("Jimmy","1234",AccessLevel.ADMIN);

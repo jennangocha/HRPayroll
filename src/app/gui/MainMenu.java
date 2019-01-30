@@ -12,6 +12,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+/*Owner: Jmmy*/
 public class MainMenu extends Stage{
 
 	private User user;

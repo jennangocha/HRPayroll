@@ -17,6 +17,8 @@ import javafx.stage.Stage;
 import app.data.DefaultData;
 import app.domain.User;
 import app.service.*;
+
+/*Owner: Jmmy*/
 public class Login extends Application{
 	
 	public static Stage loginStage;

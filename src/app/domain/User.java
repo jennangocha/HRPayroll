@@ -1,7 +1,7 @@
 package app.domain;
  
 import java.util.List;
-
+/*Owner: Jmmy*/
 public class User {
 	
 	private String username;

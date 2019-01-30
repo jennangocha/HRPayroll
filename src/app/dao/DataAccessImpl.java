@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/*Jmmy*/
 public class DataAccessImpl<K, V> implements IDataAccess<K, V> {
 	private Map<K, V> dataMap = new HashMap<K, V>();
 

@@ -17,7 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
 import javafx.stage.Stage; 
-
+/*Owner: Jmmy*/
 public class GeneratePayslip  extends Stage {
 
 	private User user;

@@ -7,7 +7,7 @@ import app.domain.*;
 
 public class PayslipVisitorImpl implements IPayslipVisitor {
 
-	private Map<String, PayslipDataComponent> payslipsCol = new HashMap<String, PayslipDataComponent>();
+	private Map<String, APayslipComponent> payslipsCol = new HashMap<String, APayslipComponent>();
 	
 	@Override
 	public void visit(HourlyEmployee e) {
@@ -21,7 +21,7 @@ public class PayslipVisitorImpl implements IPayslipVisitor {
 		
 	}
 	
-	public Map<String, PayslipDataComponent> getPayslipCol() {
+	public Map<String, APayslipComponent> getPayslipCol() {
 		return payslipsCol;
 	}
 

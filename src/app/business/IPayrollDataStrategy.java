@@ -4,5 +4,5 @@ import app.domain.*;
 
 public interface IPayrollDataStrategy {
 
-	public PayslipDataComponent createPayrollData(HourlyEmployee e); 
+	//public PayslipDataComponent createPayrollData(HourlyEmployee e); 
 }

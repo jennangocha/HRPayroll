@@ -95,6 +95,22 @@ public class MainMenu extends Stage{
 				payslip.show();
 			}
 		});
+		
+		btnReport.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+				Stage stage = new Stage();
+				stage.setTitle("Reports");
+				stage.setWidth(300);
+				stage.setHeight(700);
+				
+				
+				GenerateReport report=new GenerateReport(user,stage);
+				report.show();
+			}
+		});
 	}
 	
 	public void setOption() {

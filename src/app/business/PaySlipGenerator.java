@@ -8,7 +8,7 @@ import app.domain.PayslipData;
 
 public class PaySlipGenerator {
  
-	private PaySlipGenerator() {}
+	PaySlipGenerator() {}
 	
 	public static PaySlipGenerator getInstance() {
 		return SingletonHelper.INSTANCE;

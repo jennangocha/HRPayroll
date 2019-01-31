@@ -1,4 +1,4 @@
-package app.domain;
+package app.business;
 
 public class Leaf extends APayslipComponent{
 	

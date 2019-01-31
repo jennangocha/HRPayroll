@@ -1,4 +1,4 @@
-package app.domain;
+package app.business;
 
 import java.util.ArrayList;
 import java.util.Collection;

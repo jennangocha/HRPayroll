@@ -1,4 +1,7 @@
-package app.domain;
+package app.business;
+
+import app.domain.HourlyEmployee;
+import app.domain.SalariedEmployee;
 
 public interface IPayslipVisitor {
 

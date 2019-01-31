@@ -5,7 +5,7 @@ import java.util.Map;
 
 import app.domain.*; 
 
-public class PayslipVisitorImpl implements IPayslipVisitor {
+public class PayslipDataVisitor implements IPayslipVisitor {
 
 	private Map<String, APayslipComponent> payslipsCol = new HashMap<String, APayslipComponent>();
 	

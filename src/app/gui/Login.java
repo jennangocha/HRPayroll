@@ -96,7 +96,7 @@ public class Login extends Application{
 			public void handle(ActionEvent event) {
 				// TODO Auto-generated method stub
 				//User =new user();
-				UserController controller = UserController.getInstance();
+				UserService controller = UserService.getInstance();
 				
 				User user = controller.getUserByUsername(txtUserName.getText());				
 				

@@ -1,8 +1,6 @@
 package app.domain;
 
-import app.business.APayslipComponent;
-import app.business.Composite;
-import app.business.IPayslipPeriod;
+import app.business.*; 
 /*Owner: Jmmy*/
 public class PayslipData {
 

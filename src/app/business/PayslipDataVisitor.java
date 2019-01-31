@@ -9,9 +9,9 @@ public class PayslipDataVisitor implements IPayslipVisitor {
 
 	private Map<String, PayslipData> payslipsCol = new HashMap<String, PayslipData>();
 	private IPayslipPeriod period;
-	
-	public void setPayslipPeriod(IPayslipPeriod period) {
-		this.period=period;
+ 
+	public PayslipDataVisitor(IPayslipPeriod visitPeriod) {
+		this.period=visitPeriod;
 	}
 	
 	@Override

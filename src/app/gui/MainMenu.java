@@ -79,6 +79,23 @@ public class MainMenu extends Stage{
 			}
 		});
 		
+		btnEmployee.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				Stage myStage = new Stage();
+				EmployeeInfo empApp = new EmployeeInfo();
+				try {
+					empApp.start(myStage);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+			}
+		});
+		
 		btnPayslip.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override

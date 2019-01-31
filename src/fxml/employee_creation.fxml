@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="611.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.CreateEmployeeController">
+   <children>
+      <Label fx:id="fxlbl_createemployee" layoutX="24.0" layoutY="24.0" text="Create Employee">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="fxlbl_employeeid" layoutX="24.0" layoutY="83.0" prefHeight="17.0" prefWidth="121.0" text="Employee ID">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="fxlbl_firstname" layoutX="24.0" layoutY="116.0" prefHeight="17.0" prefWidth="121.0" text="Firstname">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="fxlbl_lastname" layoutX="24.0" layoutY="150.0" prefHeight="17.0" prefWidth="121.0" text="Lastname">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="fxlbl_street" layoutX="24.0" layoutY="218.0" prefHeight="17.0" prefWidth="121.0" text="Street">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="fxlbl_city" layoutX="24.0" layoutY="252.0" prefHeight="17.0" prefWidth="121.0" text="City">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="fxlbl_state" layoutX="24.0" layoutY="291.0" prefHeight="17.0" prefWidth="121.0" text="State">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="fxlbl_phone" layoutX="24.0" layoutY="473.0" prefHeight="17.0" prefWidth="121.0" text="Phone">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="fxlbl_email" layoutX="24.0" layoutY="514.0" prefHeight="17.0" prefWidth="121.0" text="Email">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fxtf_employeeid" layoutX="162.0" layoutY="79.0" prefHeight="27.0" prefWidth="390.0" />
+      <TextField fx:id="fxtf_firstname" layoutX="162.0" layoutY="112.0" prefHeight="27.0" prefWidth="390.0" />
+      <TextField fx:id="fxtf_lastname" layoutX="162.0" layoutY="146.0" prefHeight="27.0" prefWidth="390.0" />
+      <TextField fx:id="fxtf_street" layoutX="162.0" layoutY="214.0" prefHeight="27.0" prefWidth="390.0" />
+      <TextField fx:id="fxtf_city" layoutX="162.0" layoutY="248.0" prefHeight="27.0" prefWidth="390.0" />
+      <TextField fx:id="fxtf_state" layoutX="162.0" layoutY="286.0" prefHeight="27.0" prefWidth="390.0" />
+      <TextField fx:id="fxtf_phone" layoutX="162.0" layoutY="469.0" prefHeight="27.0" prefWidth="390.0" />
+      <TextField fx:id="fxtf_email" layoutX="162.0" layoutY="510.0" prefHeight="27.0" prefWidth="390.0" />
+      <Button fx:id="fxbt_save" layoutX="325.0" layoutY="551.0" mnemonicParsing="false" onAction="#onSaveAction" prefHeight="27.0" prefWidth="108.0" text="Save" />
+      <Button fx:id="fxbt_exit" layoutX="444.0" layoutY="551.0" mnemonicParsing="false" onAction="#onExitAction" prefHeight="27.0" prefWidth="108.0" text="Exit" />
+      <Label fx:id="fxlbl_country" layoutX="24.0" layoutY="326.0" prefHeight="17.0" prefWidth="121.0" text="Country">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fxtf_country" layoutX="162.0" layoutY="322.0" prefHeight="27.0" prefWidth="390.0" />
+      <TextField fx:id="fxtf_dob" layoutX="162.0" layoutY="180.0" prefHeight="27.0" prefWidth="390.0" />
+      <Label fx:id="fxlbl_dob" layoutX="24.0" layoutY="184.0" prefHeight="17.0" prefWidth="121.0" text="Date of birth">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fxtf_zipcode" layoutX="162.0" layoutY="356.0" prefHeight="27.0" prefWidth="390.0" />
+      <Label fx:id="fxlbl_zipcode" layoutX="24.0" layoutY="360.0" prefHeight="17.0" prefWidth="121.0" text="Zipcode">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="fxlbl_department" layoutX="24.0" layoutY="397.0" prefHeight="17.0" prefWidth="121.0" text="Department">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="fxcb_department" layoutX="162.0" layoutY="393.0" onAction="#onDepartmentChoosenAction" prefHeight="27.0" prefWidth="390.0" />
+      <Label fx:id="fxlbl_branch" layoutX="24.0" layoutY="436.0" prefHeight="17.0" prefWidth="121.0" text="Branch">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="fxcb_branch" layoutX="162.0" layoutY="432.0" onAction="#onBranchChoosenAction" prefHeight="27.0" prefWidth="390.0" />
+   </children>
+</Pane>

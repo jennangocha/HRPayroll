@@ -8,13 +8,18 @@ import app.domain.*;
 public class PayslipDataVisitor implements IPayslipVisitor {
 
 	private Map<String, PayslipData> payslipsCol = new HashMap<String, PayslipData>();
+	private IPayslipPeriod period;
+	
+	public void setPayslipPeriod(IPayslipPeriod period) {
+		this.period=period;
+	}
 	
 	@Override
 	public void visit(HourlyEmployee e) {
 		// TODO Auto-generated method stub
 		PayslipDataDirector director=new PayslipDataDirector(new DefaultPayslipDataBuilder());
 	 
-		director.constructPayslipData(e, new EmpGroup1PayrollCalStrategyFactory());
+		director.constructPayslipData(e,period, new EmpGroup1PayrollCalStrategyFactory());
 		
 		payslipsCol.put(e.getEmpCode(), director.getPayslipData());
 	}

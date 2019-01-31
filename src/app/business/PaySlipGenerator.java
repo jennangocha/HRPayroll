@@ -18,9 +18,10 @@ public class PaySlipGenerator {
 	        private static final PaySlipGenerator INSTANCE = new PaySlipGenerator();
     }
 	
-	public Map<String, PayslipData> generate(List<Employee> e) {
+	public Map<String, PayslipData> generate(IPayslipPeriod period,List<Employee> e) {
 		
 		 PayslipDataVisitor visitor=new PayslipDataVisitor();
+		 visitor.setPayslipPeriod(period);
 		 
 		 for(Employee emp : e)
 			 emp.accept(visitor);

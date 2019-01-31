@@ -16,7 +16,12 @@ public class DefaultPayslipDataBuilder implements IPayslipDataBuilder{
 	public void buildEmployee(Employee e) {
 		payslipData.setEmployeeInfo(e);
 	}
-	 
+	
+	@Override
+	public void buildPeriod(IPayslipPeriod p) {
+		// TODO Auto-generated method stub
+		payslipData.setPayslipPeriod(p);
+	}
 	 
 	@Override
 	public void buildEarning(List<IEarningStrategy> s) {
@@ -41,6 +46,8 @@ public class DefaultPayslipDataBuilder implements IPayslipDataBuilder{
 		// TODO Auto-generated method stub
 		return payslipData;
 	}
+
+	
 	
 	 
 }

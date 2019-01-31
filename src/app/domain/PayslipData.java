@@ -1,12 +1,15 @@
 package app.domain;
 
 import app.business.APayslipComponent;
+import app.business.Composite;
+import app.business.IPayslipPeriod;
 /*Owner: Jmmy*/
 public class PayslipData {
 
 	private Employee employeeInfo;
+	private IPayslipPeriod payslipPeriod;
 	private APayslipComponent payslipComponent;
-	
+	 
 	public Employee getEmployeeInfo() {
 		return employeeInfo;
 	}
@@ -19,6 +22,11 @@ public class PayslipData {
 	public void setPayslipComponent(APayslipComponent payslipComponent) {
 		this.payslipComponent = payslipComponent;
 	}
-	
+	public IPayslipPeriod getPayslipPeriod() {
+		return payslipPeriod;
+	}
+	public void setPayslipPeriod(IPayslipPeriod payslipPeriod) {
+		this.payslipPeriod = payslipPeriod;
+	}
 	
 }

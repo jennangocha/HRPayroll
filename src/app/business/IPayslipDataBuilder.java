@@ -4,7 +4,7 @@ import java.util.List;
 
 import app.domain.Employee;
 import app.domain.PayslipData;
-
+/*Owner: Jmmy*/
 public interface IPayslipDataBuilder {
 	public void buildEmployee(Employee e);
 	public void buildEarning(List<IEarningStrategy> s);	

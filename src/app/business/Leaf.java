@@ -1,5 +1,5 @@
 package app.business;
-
+/*Owner: Jmmy*/
 public class Leaf extends APayslipComponent{
 	
 	public Leaf(Double amount) {

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import app.domain.*; 
-
+/*Owner: Jmmy*/
 public class PayslipDataVisitor implements IPayslipVisitor {
 
 	private Map<String, PayslipData> payslipsCol = new HashMap<String, PayslipData>();

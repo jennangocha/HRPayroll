@@ -1,7 +1,7 @@
 package app.domain;
 
 import app.business.APayslipComponent;
-
+/*Owner: Jmmy*/
 public class PayslipData {
 
 	private Employee employeeInfo;

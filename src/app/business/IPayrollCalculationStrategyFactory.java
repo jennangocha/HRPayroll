@@ -1,8 +1,7 @@
 package app.business;
 
-import java.util.ArrayList;
 import java.util.List;
-
+/*Owner: Jmmy*/
 public interface IPayrollCalculationStrategyFactory {
 
 	public List<IDeductionStrategy> getDeduStrategy();

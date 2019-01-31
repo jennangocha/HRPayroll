@@ -1,5 +1,5 @@
 package app.business;
-
+/*Owner: Jmmy*/
 public class Composite extends APayslipComponent{
  
 	public Composite(Double amount) {

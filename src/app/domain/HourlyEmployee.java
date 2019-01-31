@@ -1,5 +1,5 @@
 package app.domain;
 
-public class HourlyEmployee {
+public class HourlyEmployee extends Employee{
 
 }

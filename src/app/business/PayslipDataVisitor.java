@@ -7,12 +7,16 @@ import app.domain.*;
 
 public class PayslipDataVisitor implements IPayslipVisitor {
 
-	private Map<String, APayslipComponent> payslipsCol = new HashMap<String, APayslipComponent>();
+	private Map<String, PayslipData> payslipsCol = new HashMap<String, PayslipData>();
 	
 	@Override
 	public void visit(HourlyEmployee e) {
 		// TODO Auto-generated method stub
+		PayslipDataDirector director=new PayslipDataDirector(new DefaultPayslipDataBuilder());
+	 
+		director.constructPayslipData(e, new EmpGroup1PayrollCalStrategyFactory());
 		
+		payslipsCol.put(e.getEmpCode(), director.getPayslipData());
 	}
 
 	@Override
@@ -21,7 +25,7 @@ public class PayslipDataVisitor implements IPayslipVisitor {
 		
 	}
 	
-	public Map<String, APayslipComponent> getPayslipCol() {
+	public Map<String, PayslipData> getPayslipCol() {
 		return payslipsCol;
 	}
 

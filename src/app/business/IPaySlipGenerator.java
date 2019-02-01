@@ -5,7 +5,7 @@ import java.util.Map;
 
 import app.domain.*;
 import app.exceptions.AuthenticationError; 
-
+/*Owner: Jmmy*/
 public interface IPaySlipGenerator {
 	public Map<String, PayslipData> generate(IPayslipPeriod period,List<Employee> e) throws AuthenticationError ;
 }

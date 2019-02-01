@@ -22,4 +22,6 @@ public abstract class APayslipComponent {
 	public abstract APayslipComponent getComponent(String key);
 	
 	public abstract long getAmount();
+	
+	public abstract void print();
 }

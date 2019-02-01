@@ -5,7 +5,7 @@ import java.util.Map;
 import app.domain.*;
 import app.exceptions.AuthenticationError;
 import app.service.UserService;
-
+/*Owner: Jmmy*/
 public class PaySlipGeneratorProxy implements IPaySlipGenerator {
 
 	private boolean isLoggedIn = false;

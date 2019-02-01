@@ -1,9 +1,9 @@
 package app.business;
 /*Owner: Jmmy*/
 public class Composite extends APayslipComponent{
- 
-	public Composite(Double amount) {
-		super(amount);
+ 	 
+	public Composite(String col, Double val) {
+		super(col, val);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -14,9 +14,9 @@ public class Composite extends APayslipComponent{
 	}
  
 	@Override
-	public long getAmount() {
+	public double getAmount() {
 		// TODO Auto-generated method stub
-		return 0;
+		return val;
 	}
 
 	@Override

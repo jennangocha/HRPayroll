@@ -1,9 +1,9 @@
 package app.business;
 /*Owner: Jmmy*/
 public class Leaf extends APayslipComponent{
-	
-	public Leaf(Double amount) {
-		super(amount);
+		
+	public Leaf(String col, Double val) {
+		super(col, val);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -12,11 +12,16 @@ public class Leaf extends APayslipComponent{
 		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException();
 	}
+	
+	@Override
+	public void add(String key,APayslipComponent value) {
+		throw new UnsupportedOperationException();
+	}
 
 	@Override
-	public long getAmount() {
+	public double getAmount() {
 		// TODO Auto-generated method stub
-		return 0;
+		return val;
 	}
 
 	@Override

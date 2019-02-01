@@ -9,10 +9,12 @@ public abstract class APayslipComponent {
  
 	private Map<String, APayslipComponent> components = new HashMap<String, APayslipComponent>();
 
-	Double amount;
+	String col;
+	Double val;
 	
-	public APayslipComponent(Double amount) {
-		this.amount=amount;
+	public APayslipComponent(String col,Double val) {
+		this.col=col;
+		this.val=val;
 	}
 	
 	public void add(String key,APayslipComponent value) {
@@ -21,7 +23,7 @@ public abstract class APayslipComponent {
 	
 	public abstract APayslipComponent getComponent(String key);
 	
-	public abstract long getAmount();
+	public abstract double getAmount();
 	
 	public abstract void print();
 }

@@ -3,7 +3,7 @@ package app.business;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PayrollCalStraFactoryImplHourEmp implements IPayrollCalculationStrategyFactory{
+public class PayrollCalStraFactoryHourEmp implements IPayrollCalculationStrategyFactory{
 	
 	@Override
 	public List<IDeductionStrategy> getDeduStrategy() {

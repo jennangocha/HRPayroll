@@ -2,9 +2,9 @@ package app.business;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class PayrollCalStraFactoryImplSalEmp implements IPayrollCalculationStrategyFactory{
-	
+/*Owner: Jmmy*/
+public class PayrollCalStraFactoryCommEmp implements IPayrollCalculationStrategyFactory {
+ 	
 	@Override
 	public List<IDeductionStrategy> getDeduStrategy() {
 		// TODO Auto-generated method stub
@@ -28,8 +28,9 @@ public class PayrollCalStraFactoryImplSalEmp implements IPayrollCalculationStrat
 		// TODO Auto-generated method stub
 		List<IBasicPayStrategy> basicpay= new ArrayList<IBasicPayStrategy>();		
 		
-		basicpay.add(new BasicPayStrategySalEmp());
+		basicpay.add(new BasicPayStrategyCommEmp());
 		
 		return basicpay;
 	}
+
 }

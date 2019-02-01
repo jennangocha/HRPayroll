@@ -1,0 +1,20 @@
+package app.business;
+
+import app.domain.Employee;
+
+public class BasicPayStrategyHourEmp implements IBasicPayStrategy {
+
+	@Override
+	public double calcBasic(Employee e, IPayslipPeriod p) {
+		// TODO Auto-generated method stub
+		double hourlyWage=0;
+		double totalWorkingHr=0;
+		return hourlyWage*totalWorkingHr;
+	}
+
+	@Override
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return "Basic Pay";
+	}
+}

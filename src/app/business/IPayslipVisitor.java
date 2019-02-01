@@ -1,10 +1,10 @@
 package app.business;
 
-import app.domain.HourlyEmployee;
-import app.domain.SalariedEmployee;
+import app.domain.*; 
 /*Owner: Jmmy*/
 public interface IPayslipVisitor {
 
 	public void visit(HourlyEmployee e);
 	public void visit(SalariedEmployee e);
+	public void visit(CommissionedEmployee e);
 }

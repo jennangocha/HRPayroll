@@ -19,4 +19,11 @@ public class Composite extends APayslipComponent{
 		return 0;
 	}
 
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
 }

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Date;
 
 import app.business.IEmployeePayslip;
-import app.business.IPayslipVisitor;
+import app.business.visitor.IPayslipVisitor;
 
 /**
  * Owner: Jmmy, luungocha

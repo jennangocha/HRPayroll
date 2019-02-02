@@ -2,7 +2,7 @@ package app.domain;
 
 import java.time.LocalDate;
 
-import app.business.IPayslipVisitor;
+import app.business.visitor.IPayslipVisitor;
 
 /*Owner: Jmmy*/
 public class HourlyEmployee extends Employee{

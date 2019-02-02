@@ -50,7 +50,7 @@ public class MainMenu extends Stage{
 
 	    selectedImage.setImage(image);
 	    
-	    vBox.setSpacing(5);
+	    vBox.setSpacing(15);
 	    vBox.setAlignment(Pos.BASELINE_CENTER);
 	    vBox.getChildren().addAll(lblTitle,btnEmployee,btnPayslip,btnReport,btnLogout,selectedImage);
 		

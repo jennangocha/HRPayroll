@@ -1,7 +1,10 @@
 package app.gui;
 
+import java.io.File;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 import app.domain.Employee;
@@ -30,15 +33,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage; 
 /*Owner: Jmmy*/
 public class GeneratePayslip  extends Stage {
 
 	private User user;
-	
+	private Stage stage;
 	private Button btnSearch=new Button("Search");
-	private Button btnSubmit=new Button("Submit");
-	private Button btnPreview=new Button("Preview");
+	private Button btnSubmit=new Button("Export");
+	private Button btnBrowsePath=new Button("Browse");
 	
 	private Label lblTitle=new Label("Generate Payslip");
 	
@@ -52,9 +56,13 @@ public class GeneratePayslip  extends Stage {
 	
 	private Label lblPeriod=new Label("Pay Period :");
 	
+	private Label lblExportPath=new Label("Export Path :");
+	
 	private TextField txtSearch=new TextField();	 
 	private TextField txtDept=new TextField();
 	private TextField txtBranch=new TextField(); 
+	
+	private TextField txtExportPath=new TextField(); 
 	
 	private DatePicker datePickerfrom = new DatePicker();
 	private DatePicker datePickerto = new DatePicker();
@@ -68,15 +76,19 @@ public class GeneratePayslip  extends Stage {
 	private ComboBox cboPayslipTemplete = new ComboBox(options);
 	
 	//A checkbox with a string caption
-	CheckBox chkemail = new CheckBox("Email");
+	/*CheckBox chkemail = new CheckBox("Email");
 	CheckBox chkexport = new CheckBox("Export");
-	CheckBox chkprint = new CheckBox("Print");
+	CheckBox chkprint = new CheckBox("Print");*/
 	
-	   private TableView<EmployeeInfoPayslipDisplay> tblEmployee = new TableView<>(); 
-	    private final ObservableList<EmployeeInfoPayslipDisplay> data =
-	            FXCollections.observableArrayList();
+    private TableView<EmployeeInfoPayslipDisplay> tblEmployee = new TableView<>(); 
+    private final ObservableList<EmployeeInfoPayslipDisplay> data =
+            FXCollections.observableArrayList();
+    
+    DirectoryChooser directoryChooser = new DirectoryChooser();
+    File selectedDirectory;
 	
 	public GeneratePayslip(User user,Stage stage) {
+		this.stage=stage;
 		 setGUI();
 		 setEvent();
 	}
@@ -113,15 +125,11 @@ public class GeneratePayslip  extends Stage {
         ScrollBar table1VerticalScrollBar = findScrollBar( tblEmployee, Orientation.VERTICAL);
         tblEmployee.getColumns().addAll(dateCol1,dateCol2,dateCol3,dateCol4,dateCol5,dateCol6); 
         tblEmployee.setPrefSize( 600, 200 );
-        tblEmployee.setItems(data);	
-		
+        tblEmployee.setItems(data);			
 	
-		txtSearch.setPrefWidth(100);
-		
-	
-		txtDept.setEditable(false);
-		txtBranch.setEditable(false);
-	
+		txtSearch.setPrefWidth(100);		
+	 
+		txtExportPath.setEditable(false);			
 		
 		datePickerfrom.setValue(LocalDate.of(2019, 2,1));
 		datePickerto.setValue(LocalDate.of(2019, 2, 28));
@@ -154,11 +162,15 @@ public class GeneratePayslip  extends Stage {
 		grid.add(lblPayslipTemplate, 0, 5);
 		grid.add(cboPayslipTemplete, 1, 5);
 		//grid.add(btnPreview,2, 9);
-		HBox hbox = new HBox();
+		/*HBox hbox = new HBox();
 	    hbox.setPadding(new Insets(15, 12, 15, 12));
 	    hbox.setSpacing(10);
 	    hbox.getChildren().addAll(chkprint,chkemail,chkexport);
-		grid.add(hbox, 1, 6,2,1); 
+		grid.add(hbox, 1, 6,2,1); */
+		
+		grid.add(lblExportPath, 0, 6);
+		grid.add(txtExportPath, 1, 6);
+		grid.add(btnBrowsePath, 2, 6);
 		
 		grid.add(btnSubmit, 1, 7);
 		
@@ -176,6 +188,27 @@ public class GeneratePayslip  extends Stage {
 				refreshEmployeeList(getEmployeeList());
 			}
 		});
+		
+		btnBrowsePath.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+				selectedDirectory= directoryChooser.showDialog(stage);
+				
+				txtExportPath.setText(selectedDirectory.getAbsolutePath());
+			}
+		});
+		
+		btnSubmit.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+			 
+					
+			}
+		});
 	}
 	
 	private void refreshEmployeeList(List<Employee> e) {
@@ -187,11 +220,12 @@ public class GeneratePayslip  extends Stage {
 	}
 	
 	private List<Employee> getEmployeeList(){
-		return EmployeeService.getInstance().getAllEmployee(txtDept.getText().trim(), txtBranch.getText().trim(), txtSearch.getText().trim())
+		return EmployeeService.getInstance().getAllEmployee(txtDept.getText().trim(), txtBranch.getText().trim(), txtSearch.getText().trim());
 	}
 	
 	private PayslipPeriod getPayPeriod() {
-		PayslipPeriod period=new PayslipPeriod(from, to);
+		 
+		PayslipPeriod period=new PayslipPeriod(java.sql.Date.valueOf( datePickerfrom.getValue()),  java.sql.Date.valueOf( datePickerto.getValue()));
 		
 		return period;
 	}

@@ -18,8 +18,8 @@ public class EmployeeService {
 		return instance; 
 	}
 	
-	public Employee addNewEmployee(Employee emp) {
-		return dataAccess.add(emp.getEmpCode(), emp);
+	public void addNewEmployee(Employee emp) {
+		 dataAccess.add(emp.getEmpCode(), emp);
 	}
 	
 	public Employee getEmployeeById(String employeeCode) {

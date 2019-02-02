@@ -1,5 +1,9 @@
 package app.controller;
 
+import org.omg.CORBA.INITIALIZE;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -59,7 +63,9 @@ public class CreateEmployeeController {
     private Label fxlbl_email;
 
     @FXML
-    private ComboBox<?> fxcb_department;
+    private ComboBox<String> fxcb_department;
+    
+    ObservableList<String> listDepartment = FXCollections.observableArrayList("Financial","Human Resource","Development");
 
     @FXML
     private TextField fxtf_city;
@@ -96,6 +102,12 @@ public class CreateEmployeeController {
 
     @FXML
     private TextField fxtf_country;
+    
+    @FXML
+    private void initialize() {
+    	fxcb_department.setValue("Development");
+    	fxcb_department.setItems(listDepartment);
+    }
 
     @FXML
     void onSaveAction(ActionEvent event) {

@@ -6,15 +6,15 @@ package app.domain;
  *
  */
 
-public class Deparment {
+public class Department {
 	
 	private String departmentCode;
 	private String departmentName;
 
-	public Deparment() {
+	public Department() {
 	}
 	
-	public Deparment(String departmentCode, String departmentName) {
+	public Department(String departmentCode, String departmentName) {
 		this.departmentCode = departmentCode;
 		this.departmentName = departmentName;
 	}

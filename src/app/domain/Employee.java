@@ -1,5 +1,6 @@
 package app.domain;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import app.business.IEmployeePayslip;
@@ -16,25 +17,22 @@ public abstract class Employee implements IEmployeePayslip{
 	private String zipcode;
 	private String phone;
 	private String email;
-	private Date dateOfBirth;
+	private LocalDate dateOfBirth;
 	private String ssn;
 	private String position;
-	private Date joinDate;
-	private Date resignDate;
+	private LocalDate joinDate;
+	private LocalDate resignDate;
 	private Boolean isRegign;
 	private Boolean isPermanent;
 	private Address address;
-	private Deparment department;
+	private Department department;
 	private Branch branch;
 
 	public Employee() {}
 	
-	
-	
 	public Employee(String empCode, String firstName, String lastName, String zipcode, String phone, String email,
-			Date dateOfBirth, String ssn, String position, Date joinDate, Date resignDate, Boolean isRegign,
-			Boolean isPermanent, Address address, Deparment department, Branch branch) {
-		super();
+			LocalDate dateOfBirth, String ssn, String position, LocalDate joinDate, LocalDate resignDate, Boolean isRegign,
+			Boolean isPermanent, Address address, Department department, Branch branch) {
 		this.empCode = empCode;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -95,11 +93,11 @@ public abstract class Employee implements IEmployeePayslip{
 		this.email = email;
 	}
 
-	public Date getDateOfBirth() {
+	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
@@ -111,19 +109,19 @@ public abstract class Employee implements IEmployeePayslip{
 		this.position = position;
 	}
 
-	public Date getJoinDate() {
+	public LocalDate getJoinDate() {
 		return joinDate;
 	}
 
-	public void setJoinDate(Date joinDate) {
+	public void setJoinDate(LocalDate joinDate) {
 		this.joinDate = joinDate;
 	}
 
-	public Date getResignDate() {
+	public LocalDate getResignDate() {
 		return resignDate;
 	}
 
-	public void setResignDate(Date resignDate) {
+	public void setResignDate(LocalDate resignDate) {
 		this.resignDate = resignDate;
 	}
 
@@ -175,11 +173,11 @@ public abstract class Employee implements IEmployeePayslip{
 		this.address = address;
 	}
 
-	public Deparment getDepartment() {
+	public Department getDepartment() {
 		return department;
 	}
 
-	public void setDepartment(Deparment department) {
+	public void setDepartment(Department department) {
 		this.department = department;
 	}
 

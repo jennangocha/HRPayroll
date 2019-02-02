@@ -33,10 +33,14 @@ public class EmployeeService {
 	
 	public List<Employee> getAllEmployee(String Department,String Branch,String query){
 		
+		System.out.println("getall"+ getAllEmployee().size());
+		
 		List<Employee> list=getAllEmployee()
 				.stream()
 				.filter(x->x.getFirstName().contains(query) || x.getLastName().contains(query) || x.getEmpCode().contains(query))
 				.collect(Collectors.toList());
+		
+		System.out.println("list count" + list.size());
 		
 		if(Department=="" && Branch=="")
 			return list;

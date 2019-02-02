@@ -29,6 +29,32 @@ public abstract class Employee implements IEmployeePayslip{
 
 	public Employee() {}
 	
+	
+	
+	public Employee(String empCode, String firstName, String lastName, String zipcode, String phone, String email,
+			Date dateOfBirth, String ssn, String position, Date joinDate, Date resignDate, Boolean isRegign,
+			Boolean isPermanent, Address address, Deparment department, Branch branch) {
+		super();
+		this.empCode = empCode;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.zipcode = zipcode;
+		this.phone = phone;
+		this.email = email;
+		this.dateOfBirth = dateOfBirth;
+		this.ssn = ssn;
+		this.position = position;
+		this.joinDate = joinDate;
+		this.resignDate = resignDate;
+		this.isRegign = isRegign;
+		this.isPermanent = isPermanent;
+		this.address = address;
+		this.department = department;
+		this.branch = branch;
+	}
+
+
+
 	public String getFirstName() {
 		return firstName;
 	}

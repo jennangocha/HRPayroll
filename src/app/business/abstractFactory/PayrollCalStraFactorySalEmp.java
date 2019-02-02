@@ -1,9 +1,15 @@
-package app.business;
+package app.business.abstractFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PayrollCalStraFactoryHourEmp implements IPayrollCalculationStrategyFactory{
+import app.business.BasicPayStrategySalEmp;
+import app.business.DeductionStrategyLeaveEmp;
+import app.business.IBasicPayStrategy;
+import app.business.IDeductionStrategy;
+import app.business.IEarningStrategy;
+
+public class PayrollCalStraFactorySalEmp implements IPayrollCalculationStrategyFactory{
 	
 	@Override
 	public List<IDeductionStrategy> getDeduStrategy() {
@@ -28,9 +34,8 @@ public class PayrollCalStraFactoryHourEmp implements IPayrollCalculationStrategy
 		// TODO Auto-generated method stub
 		List<IBasicPayStrategy> basicpay= new ArrayList<IBasicPayStrategy>();		
 		
-		basicpay.add(new BasicPayStrategyHourEmp());
+		basicpay.add(new BasicPayStrategySalEmp());
 		
 		return basicpay;
 	}
-
 }

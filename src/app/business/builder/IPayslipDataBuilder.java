@@ -1,7 +1,11 @@
-package app.business;
+package app.business.builder;
 
 import java.util.List;
 
+import app.business.IBasicPayStrategy;
+import app.business.IDeductionStrategy;
+import app.business.IEarningStrategy;
+import app.business.IPayslipPeriod;
 import app.domain.Employee;
 import app.domain.PayslipData;
 import app.domain.PayslipPeriod;

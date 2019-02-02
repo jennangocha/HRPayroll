@@ -1,8 +1,9 @@
-package app.business;
+package app.business.proxy;
 
 import java.util.List;
 import java.util.Map;
 
+import app.business.IPayslipPeriod;
 import app.domain.*;
 import app.exceptions.AuthenticationError; 
 /*Owner: Jmmy*/

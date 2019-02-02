@@ -5,7 +5,7 @@ import java.util.Map;
 
 import app.business.IPayslipPeriod;
 import app.business.IPayslipTemplete;
-import app.business.PaySlipGeneratorProxy;
+import app.business.proxy.PaySlipGeneratorProxy;
 import app.domain.Employee;
 import app.domain.PayslipData;
 import app.domain.User;

@@ -19,7 +19,7 @@ public class PayslipDataVisitor implements IPayslipVisitor {
 		// TODO Auto-generated method stub
 		PayslipDataDirector director=new PayslipDataDirector(new PayslipDataBuilder());
 	 
-		director.constructPayslipData(e,period, new PayrollCalStraFactoryImplCommEmp());
+		director.constructPayslipData(e,period, new PayrollCalStraFactoryHourEmp());
 		
 		payslipsCol.put(e.getEmpCode(), director.getPayslipData());
 	}
@@ -29,7 +29,7 @@ public class PayslipDataVisitor implements IPayslipVisitor {
 		// TODO Auto-generated method stub
 		PayslipDataDirector director=new PayslipDataDirector(new PayslipDataBuilder());
 		 
-		director.constructPayslipData(e,period, new PayrollCalStraFactoryImplSalEmp());
+		director.constructPayslipData(e,period, new PayrollCalStraFactorySalEmp());
 		
 		payslipsCol.put(e.getEmpCode(), director.getPayslipData());
 	}	
@@ -39,7 +39,7 @@ public class PayslipDataVisitor implements IPayslipVisitor {
 		// TODO Auto-generated method stub
 		PayslipDataDirector director=new PayslipDataDirector(new PayslipDataBuilder());
 		 
-		director.constructPayslipData(e,period, new PayrollCalStraFactoryImplCommEmp());
+		director.constructPayslipData(e,period, new PayrollCalStraFactoryCommEmp());
 		
 		payslipsCol.put(e.getEmpCode(), director.getPayslipData());
 	}

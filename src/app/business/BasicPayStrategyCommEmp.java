@@ -8,7 +8,7 @@ public class BasicPayStrategyCommEmp implements IBasicPayStrategy{
 	public double calcBasic(Employee e, IPayslipPeriod p) {
 		// TODO Auto-generated method stub
 		double commession=0;
-		double baseSalary=0;
+		double baseSalary=e.getBasicSalary();
 		
 		return commession+baseSalary;
 	}

@@ -1,7 +1,10 @@
-package app.business;
+package app.business.proxy;
 
 import java.util.List;
 import java.util.Map;
+
+import app.business.IPayslipPeriod;
+import app.business.prototype.PayslipData;
 import app.domain.*;
 import app.exceptions.AuthenticationError;
 import app.service.UserService;
@@ -9,19 +12,17 @@ import app.service.UserService;
 public class PaySlipGeneratorProxy implements IPaySlipGenerator {
 
 	private boolean isLoggedIn = false;
-	    
-    private PaySlipGenerator paySlipGenerator;
-
+	 
     public PaySlipGeneratorProxy(User user) {
-    	  if(isAuthorized(user)) isLoggedIn = true;
-    	  paySlipGenerator =new PaySlipGenerator().getInstance();
+    	  if(isAuthorized(user)) 
+    		  isLoggedIn = true; 
     }
 	
 	@Override
-	public Map<String, PayslipData> generate(IPayslipPeriod period, List<Employee> e) throws AuthenticationError {
+	public Map<String, PayslipData> generate(PayslipPeriod period, List<Employee> e) throws AuthenticationError {
 		// TODO Auto-generated method stub
 		if (isLoggedIn) {
-			return paySlipGenerator.generate(period, e);
+			return PaySlipGenerator.getInstance().generate(period, e);
 		}else {
 			throw new AuthenticationError("Invalid User !");
 		}

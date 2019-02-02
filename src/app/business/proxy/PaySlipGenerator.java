@@ -1,10 +1,13 @@
-package app.business;
+package app.business.proxy;
 
 import java.util.List;
 import java.util.Map;
 
+import app.business.IPayslipPeriod;
+import app.business.prototype.PayslipData;
+import app.business.visitor.PayslipDataVisitor;
 import app.domain.Employee;
-import app.domain.PayslipData;
+import app.domain.PayslipPeriod;
 /*Owner: Jmmy*/
 public class PaySlipGenerator {
  
@@ -18,7 +21,7 @@ public class PaySlipGenerator {
 	        private static final PaySlipGenerator INSTANCE = new PaySlipGenerator();
     }
 	
-	public Map<String, PayslipData> generate(IPayslipPeriod period,List<Employee> e) {
+	public Map<String, PayslipData> generate(PayslipPeriod period,List<Employee> e) {
 		
 		 PayslipDataVisitor visitor=new PayslipDataVisitor(period);
 	 

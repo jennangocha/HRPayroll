@@ -1,16 +1,23 @@
-package app.business;
+package app.business.visitor;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import app.business.IPayslipPeriod;
+import app.business.abstractFactory.PayrollCalStraFactoryCommEmp;
+import app.business.abstractFactory.PayrollCalStraFactoryHourEmp;
+import app.business.abstractFactory.PayrollCalStraFactorySalEmp;
+import app.business.builder.PayslipDataBuilder;
+import app.business.builder.PayslipDataDirector;
+import app.business.prototype.PayslipData;
 import app.domain.*; 
 /*Owner: Jmmy*/
 public class PayslipDataVisitor implements IPayslipVisitor {
 
 	private Map<String, PayslipData> payslipsCol = new HashMap<String, PayslipData>();
-	private IPayslipPeriod period;
+	private PayslipPeriod period;
  
-	public PayslipDataVisitor(IPayslipPeriod visitPeriod) {
+	public PayslipDataVisitor(PayslipPeriod visitPeriod) {
 		this.period=visitPeriod;
 	}
 	
@@ -47,7 +54,5 @@ public class PayslipDataVisitor implements IPayslipVisitor {
 	public Map<String, PayslipData> getPayslipCol() {
 		return payslipsCol;
 	}
-
-	
 
 }

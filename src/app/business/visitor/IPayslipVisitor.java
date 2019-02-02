@@ -1,4 +1,4 @@
-package app.business;
+package app.business.visitor;
 
 import app.domain.*; 
 /*Owner: Jmmy*/

@@ -1,15 +1,31 @@
-package app.domain;
+package app.business.prototype;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import app.business.*; 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import app.business.*;
+import app.domain.Employee;
+import app.domain.PayslipInfo;
+import app.domain.PayslipPeriod;
+import app.domain.StrategyType; 
 /*Owner: Jmmy*/
-public class PayslipData {
+
+@XmlRootElement(name = "payslipdata")
+@XmlAccessorType (XmlAccessType.FIELD)
+public class PayslipData implements IPrototype{
 
 	private Employee employeeInfo;
-	private IPayslipPeriod payslipPeriod;
+	
+	@XmlElement(name = "payslipPeriod")
+	private PayslipPeriod payslipPeriod;
+	
+	 @XmlElement(name = "payslipInfo")
 	private List<PayslipInfo> payslipInfo;
 	
 	public PayslipData() {
@@ -26,7 +42,7 @@ public class PayslipData {
 	public IPayslipPeriod getPayslipPeriod() {
 		return payslipPeriod;
 	}
-	public void setPayslipPeriod(IPayslipPeriod payslipPeriod) {
+	public void setPayslipPeriod(PayslipPeriod payslipPeriod) {
 		this.payslipPeriod = payslipPeriod;
 	}
 	
@@ -125,7 +141,21 @@ public class PayslipData {
 	
 	public void print() {
 		
-		System.out.println(String.format("FirstName:%a LastName:%b",employeeInfo.getFirstName(),employeeInfo.getLastName()));
+		System.out.println(String.format("FirstName:%s LastName:%s",employeeInfo.getFirstName(),employeeInfo.getLastName()));
+		System.out.println("--------------------------------\n");
+	}
+	
+	public Object clone() {
+		
+		PayslipData clone=new PayslipData();
+		Employee e=(Employee) this.employeeInfo.clone();
+		PayslipPeriod p=new PayslipPeriod(this.payslipPeriod.getFromDate(), this.payslipPeriod.getToDate());		 
+		clone.setEmployeeInfo(e);
+		clone.setPayslipPeriod(p);
+		for(PayslipInfo i : this.payslipInfo)
+			clone.payslipInfo.add(i);
+		
+		return clone;
 	}
 }
 

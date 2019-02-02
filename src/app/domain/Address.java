@@ -14,7 +14,11 @@ public class Address {
 	private String country;
 	
 	public Address() {
-		
+		this.street = "N.4th Street";
+		this.city = "Fairfield";
+		this.zipcode = "12345";
+		this.state = "IA";
+		this.country = "US";
 	}
 	
 	public Address(String street, String city, String zipcode, String state, String country) {

@@ -7,7 +7,7 @@ public class BasicPayStrategySalEmp implements IBasicPayStrategy {
 	@Override
 	public double calcBasic(Employee e, IPayslipPeriod p) {
 		// TODO Auto-generated method stub
-		double basicSalary=0;
+		double basicSalary=e.getBasicSalary();
 		return basicSalary;
 	}
 

@@ -4,12 +4,12 @@ import java.time.LocalDate;
 import java.util.Date;
 
 import app.business.IEmployeePayslip;
-import app.business.IPayslipVisitor;
+import app.business.visitor.IPayslipVisitor;
 
 /**
- * Owner: Jmmy, luungocha
+ * Owner: luungocha
  * */
-public abstract class Employee implements IEmployeePayslip{
+public abstract class Employee implements IEmployeePayslip, Cloneable{
 
 	private String empCode;
 	private String firstName;
@@ -27,12 +27,13 @@ public abstract class Employee implements IEmployeePayslip{
 	private Address address;
 	private Department department;
 	private Branch branch;
+	private Double basicSalary;
 
 	public Employee() {}
 	
 	public Employee(String empCode, String firstName, String lastName, String zipcode, String phone, String email,
 			LocalDate dateOfBirth, String ssn, String position, LocalDate joinDate, LocalDate resignDate, Boolean isRegign,
-			Boolean isPermanent, Address address, Department department, Branch branch) {
+			Boolean isPermanent, Address address, Department department, Branch branch, Double salary) {
 		this.empCode = empCode;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -49,9 +50,31 @@ public abstract class Employee implements IEmployeePayslip{
 		this.address = address;
 		this.department = department;
 		this.branch = branch;
+		this.basicSalary = salary;
 	}
 
+	public Object clone() 
+    { 
+        Object clone = null; 
+        try 
+        { 
+            clone = super.clone(); 
+        }  
+        catch (CloneNotSupportedException e)  
+        { 
+            e.printStackTrace(); 
+        } 
+        return clone; 
+    } 
+	
 
+	public Double getBasicSalary() {
+		return basicSalary;
+	}
+
+	public void setBasicSalary(Double basicSalary) {
+		this.basicSalary = basicSalary;
+	}
 
 	public String getFirstName() {
 		return firstName;

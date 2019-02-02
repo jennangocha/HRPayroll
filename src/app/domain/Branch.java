@@ -12,6 +12,8 @@ public class Branch {
 	private String branchName;
 	
 	public Branch() {
+		this.branchCode = "BRANCH1";
+		this.branchName = "FAIRFIELD BRANCH";
 	}
 
 	public Branch(String branchCode, String branchName) {

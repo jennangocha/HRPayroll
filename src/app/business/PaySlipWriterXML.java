@@ -33,18 +33,17 @@ public class PaySlipWriterXML implements IPaySlipWriter{
             System.out.println("Key : " + key.toString());
             data.get(key).print();
         }
-		
-		for (Object key : data.keySet()) {
-            
-			try {
-				marshalingXML(data.get(key),exportPath);
-				showAlert(exportPath);
-			} catch (JAXBException e) {
-				// TODO Auto-generated catch block
-				showError(exportPath);
-				e.printStackTrace();
-			}
-        }
+		try {
+			for (Object key : data.keySet()) {            
+				
+					marshalingXML(data.get(key),exportPath);
+					showAlert(exportPath);			
+	        }
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			showError(exportPath);
+			e.printStackTrace();
+		}
 		
 		
 	}	

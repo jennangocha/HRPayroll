@@ -21,7 +21,9 @@ import app.domain.StrategyType;
 public class PayslipData implements IPrototype{
 
 	private Employee employeeInfo;
-	private IPayslipPeriod payslipPeriod;
+	
+	@XmlElement(name = "payslipPeriod")
+	private PayslipPeriod payslipPeriod;
 	
 	 @XmlElement(name = "payslipInfo")
 	private List<PayslipInfo> payslipInfo;

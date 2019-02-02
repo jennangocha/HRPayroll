@@ -1,0 +1,36 @@
+package app.reports;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import app.data.EmployeeData;
+import app.domain.Department;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+public class EmployeeReport implements Ireports{
+
+	@Override
+	public TableView getReport(TableView tbl1,Label lblCaption) {
+		// TODO Auto-generated method stub
+		
+		TableColumn departmentCode = new TableColumn("Department Code");
+        TableColumn departmentName = new TableColumn("Department Name");
+        
+        
+        tbl1.getColumns().addAll(departmentCode, departmentName);
+        
+        departmentName.setCellValueFactory(new PropertyValueFactory<>("departmentName"));
+        departmentCode.setCellValueFactory(new PropertyValueFactory<>("departmentCode"));
+        List list = new ArrayList();
+        list.add(new Department("1","2"));
+        ObservableList data = FXCollections.observableList(list);
+        tbl1.setItems(data);
+        return tbl1;
+	}
+
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/" xmlns="http://javafx.com/javafx/" >
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView id="tblShow" fx:id="tbl1" layoutX="15.0" layoutY="147.0" prefHeight="392.0" prefWidth="866.0">
+              <columns>
+                
+              </columns>
+            </TableView>
+            <Label fx:id="lblCaption" layoutX="412.0" layoutY="23.0" text="Employee" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

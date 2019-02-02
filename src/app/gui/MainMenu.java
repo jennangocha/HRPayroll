@@ -36,6 +36,7 @@ public class MainMenu extends Stage{
 		setEvent();
 		setOption();
 	}
+	
 	public void setGUI() {
 		
 		lblTitle.setStyle("-fx-font: 24 arial;");

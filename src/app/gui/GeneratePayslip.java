@@ -2,27 +2,25 @@ package app.gui;
 
 import java.io.File;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 
+import app.business.PaySlipTempleteXML;
 import app.domain.Employee;
 import app.domain.EmployeeInfoPayslipDisplay;
 import app.domain.PayslipPeriod;
 import app.domain.User;
 import app.service.EmployeeService;
+import app.service.PayslipService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -32,7 +30,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage; 
 /*Owner: Jmmy*/
@@ -88,11 +85,13 @@ public class GeneratePayslip  extends Stage {
     File selectedDirectory;
 	
 	public GeneratePayslip(User user,Stage stage) {
+		this.user=user;
 		this.stage=stage;
-		 setGUI();
-		 setEvent();
+		setGUI();
+		setEvent();
 	}
 	
+	@SuppressWarnings("unchecked")
 	private void setGUI() {
 		lblTitle.setStyle("-fx-font: 24 arial;");
 		
@@ -206,7 +205,8 @@ public class GeneratePayslip  extends Stage {
 			public void handle(ActionEvent event) {
 				// TODO Auto-generated method stub
 			 
-					
+					if(isValidate())
+						PayslipService.print(user,getEmployeeList(),getPayPeriod(),new PaySlipTempleteXML(), selectedDirectory.getAbsolutePath());
 			}
 		});
 	}
@@ -228,6 +228,10 @@ public class GeneratePayslip  extends Stage {
 		PayslipPeriod period=new PayslipPeriod(java.sql.Date.valueOf( datePickerfrom.getValue()),  java.sql.Date.valueOf( datePickerto.getValue()));
 		
 		return period;
+	}
+	
+	private boolean isValidate() {
+		return true;
 	}
 	
 	 private ScrollBar findScrollBar(TableView<?> table, Orientation orientation) {

@@ -33,7 +33,7 @@ public abstract class Employee implements IEmployeePayslip, Cloneable{
 	
 	public Employee(String empCode, String firstName, String lastName, String zipcode, String phone, String email,
 			LocalDate dateOfBirth, String ssn, String position, LocalDate joinDate, LocalDate resignDate, Boolean isRegign,
-			Boolean isPermanent, Address address, Department department, Branch branch) {
+			Boolean isPermanent, Address address, Department department, Branch branch, Double salary) {
 		this.empCode = empCode;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -50,6 +50,7 @@ public abstract class Employee implements IEmployeePayslip, Cloneable{
 		this.address = address;
 		this.department = department;
 		this.branch = branch;
+		this.basicSalary = salary;
 	}
 
 	public Object clone() 

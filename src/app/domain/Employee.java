@@ -27,6 +27,7 @@ public abstract class Employee implements IEmployeePayslip, Cloneable{
 	private Address address;
 	private Department department;
 	private Branch branch;
+	private Double basicSalary;
 
 	public Employee() {}
 	
@@ -64,6 +65,15 @@ public abstract class Employee implements IEmployeePayslip, Cloneable{
         } 
         return clone; 
     } 
+	
+
+	public Double getBasicSalary() {
+		return basicSalary;
+	}
+
+	public void setBasicSalary(Double basicSalary) {
+		this.basicSalary = basicSalary;
+	}
 
 	public String getFirstName() {
 		return firstName;

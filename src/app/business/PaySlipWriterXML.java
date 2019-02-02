@@ -38,17 +38,25 @@ public class PaySlipWriterXML implements IPaySlipWriter{
             
 			try {
 				marshalingXML(data.get(key),exportPath);
+				showAlert(exportPath);
 			} catch (JAXBException e) {
 				// TODO Auto-generated catch block
+				showError(exportPath);
 				e.printStackTrace();
 			}
         }
 		
-		showAlert(exportPath);
+		
 	}	
 	
 	public void showAlert(String exportPath) {
 		Alert a=new Alert(Alert.AlertType.INFORMATION, String.format("Successfully export to : %s",exportPath));
+		a.setHeaderText("Generate Payslip");
+		a.showAndWait();
+	}
+	
+	public void showError(String exportPath) {
+		Alert a=new Alert(Alert.AlertType.ERROR, String.format("Exporting to : %s failed !",exportPath));
 		a.setHeaderText("Generate Payslip");
 		a.showAndWait();
 	}

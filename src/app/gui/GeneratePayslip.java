@@ -1,12 +1,17 @@
 package app.gui;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
+import app.domain.Employee;
 import app.domain.EmployeeInfoPayslipDisplay;
-import app.domain.User; 
+import app.domain.User;
+import app.service.EmployeeService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
@@ -74,6 +79,7 @@ public class GeneratePayslip  extends Stage {
 	
 	public GeneratePayslip(User user,Stage stage) {
 		 setGUI();
+		 setEvent();
 	}
 	
 	private void setGUI() {
@@ -101,7 +107,7 @@ public class GeneratePayslip  extends Stage {
         dateCol2.setPrefWidth(150);
         dateCol2.setCellValueFactory(new PropertyValueFactory<>("Branch"));
         
-        TableColumn<EmployeeInfoPayslipDisplay, String> dateCol6 = new TableColumn<>("BasicPay");
+        TableColumn<EmployeeInfoPayslipDisplay, Double> dateCol6 = new TableColumn<>("BasicPay");
         dateCol2.setPrefWidth(150);
         dateCol2.setCellValueFactory(new PropertyValueFactory<>("BasicPay"));
         
@@ -163,6 +169,21 @@ public class GeneratePayslip  extends Stage {
 	}
 	
 	private void setEvent() {
+		btnSearch.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+				refreshEmployeeList(EmployeeService.getInstance().getAllEmployee(txtDept.getText().trim(), txtBranch.getText().trim(), txtSearch.getText().trim()));
+			}
+		});
+	}
+	
+	private void refreshEmployeeList(List<Employee> e) {
+		data.clear();
+		
+		for(Employee emp : e) 
+			data.add(new EmployeeInfoPayslipDisplay(emp.getFirstName(), emp.getLastName(), emp.getEmpCode(), emp.getDepartment().getDepartmentName(), emp.getBranch().getBranchName(), 0.00));
 		
 	}
 	

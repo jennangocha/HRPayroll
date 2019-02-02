@@ -7,9 +7,9 @@ public class EmployeeInfoPayslipDisplay {
 	private String code;
 	private String department;
 	private String branch; 
-	private String basicPay;
+	private double basicPay;
 	public EmployeeInfoPayslipDisplay(String firstName, String lastName, String code, String department, String branch,
-			String basicPay) {
+			double basicPay) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -48,10 +48,10 @@ public class EmployeeInfoPayslipDisplay {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
-	public String getBasicPay() {
+	public double getBasicPay() {
 		return basicPay;
 	}
-	public void setBasicPay(String basicPay) {
+	public void setBasicPay(double basicPay) {
 		this.basicPay = basicPay;
 	} 
 	

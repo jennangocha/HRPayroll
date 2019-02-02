@@ -9,5 +9,5 @@ import app.domain.*;
 import app.exceptions.AuthenticationError; 
 /*Owner: Jmmy*/
 public interface IPaySlipGenerator {
-	public Map<String, PayslipData> generate(IPayslipPeriod period,List<Employee> e) throws AuthenticationError ;
+	public Map<String, PayslipData> generate(PayslipPeriod period,List<Employee> e) throws AuthenticationError ;
 }

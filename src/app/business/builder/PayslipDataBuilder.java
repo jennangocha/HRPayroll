@@ -8,6 +8,7 @@ import app.business.IEarningStrategy;
 import app.business.IPayslipPeriod;
 import app.business.prototype.PayslipData;
 import app.domain.Employee;
+import app.domain.PayslipPeriod;
 /*Owner: Jmmy*/
 public class PayslipDataBuilder implements IPayslipDataBuilder{
 
@@ -22,7 +23,7 @@ public class PayslipDataBuilder implements IPayslipDataBuilder{
 	}
 	
 	@Override
-	public void buildPeriod(IPayslipPeriod p) {
+	public void buildPeriod(PayslipPeriod p) {
 		// TODO Auto-generated method stub
 		payslipData.setPayslipPeriod(p);
 	}

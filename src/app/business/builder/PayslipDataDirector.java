@@ -14,7 +14,7 @@ public class PayslipDataDirector {
 		this.builder=builder;
 	}
 	
-	public void constructPayslipData(Employee e,IPayslipPeriod p,IPayrollCalculationStrategyFactory strategys) {
+	public void constructPayslipData(Employee e,PayslipPeriod p,IPayrollCalculationStrategyFactory strategys) {
 		builder.buildEmployee(e);
 		builder.buildPeriod(p);
 		builder.buildDeduction(strategys.getDeduStrategy());

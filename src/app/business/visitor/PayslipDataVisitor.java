@@ -15,9 +15,9 @@ import app.domain.*;
 public class PayslipDataVisitor implements IPayslipVisitor {
 
 	private Map<String, PayslipData> payslipsCol = new HashMap<String, PayslipData>();
-	private IPayslipPeriod period;
+	private PayslipPeriod period;
  
-	public PayslipDataVisitor(IPayslipPeriod visitPeriod) {
+	public PayslipDataVisitor(PayslipPeriod visitPeriod) {
 		this.period=visitPeriod;
 	}
 	
@@ -54,7 +54,5 @@ public class PayslipDataVisitor implements IPayslipVisitor {
 	public Map<String, PayslipData> getPayslipCol() {
 		return payslipsCol;
 	}
-
-	
 
 }

@@ -32,28 +32,26 @@ public class EmployeeService {
 	
 	public List<Employee> getAllEmployee(String Department,String Branch,String query){
 		
-		System.out.println("getall"+ getAllEmployee().size());
-		
+		System.out.println("All employee in db count: "+ getAllEmployee().size());
+		 
 		List<Employee> list=getAllEmployee()
 				.stream()
-				.filter(x->x.getFirstName().contains(query) || x.getLastName().contains(query) || x.getEmpCode().contains(query))
+				.filter(x->x.getFirstName().toUpperCase().contains(query.toUpperCase()) || x.getLastName().toUpperCase().contains(query.toUpperCase()) || x.getEmpCode().toUpperCase().contains(query.toUpperCase()))
 				.collect(Collectors.toList());
-		
-		System.out.println("list count" + list.size());
-		
+		 
 		if(Department=="" && Branch=="")
 			return list;
 		
 		if(Department!="" )
 		list=list.stream()
-				.filter(x->x.getDepartment().getDepartmentName().contains(Department) || x.getDepartment().getDepartmentCode().contains(Department))
+				.filter(x->x.getDepartment().getDepartmentName().toUpperCase().contains(Department.toUpperCase()) || x.getDepartment().getDepartmentCode().toUpperCase().contains(Department.toUpperCase()))
 				.collect(Collectors.toList());
 		
 		if(Branch=="")
 			return list;
-		
+	 
 		return list=list.stream()
-				.filter(x->x.getBranch().getBranchName().contains(Branch) || x.getBranch().getBranchCode().contains(Branch))
+				.filter(x->x.getBranch().getBranchName().toUpperCase().contains(Branch.toUpperCase()) || x.getBranch().getBranchCode().toUpperCase().contains(Branch.toUpperCase()))
 				.collect(Collectors.toList());
 		
 	}

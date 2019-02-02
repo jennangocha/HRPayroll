@@ -148,7 +148,7 @@ public class PayslipData implements IPrototype{
 	public Object clone() {
 		
 		PayslipData clone=new PayslipData();
-		Employee e=this.employeeInfo;
+		Employee e=(Employee) this.employeeInfo.clone();
 		PayslipPeriod p=new PayslipPeriod(this.payslipPeriod.getFromDate(), this.payslipPeriod.getToDate());		 
 		clone.setEmployeeInfo(e);
 		clone.setPayslipPeriod(p);

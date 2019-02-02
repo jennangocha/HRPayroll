@@ -1,5 +1,8 @@
 package app.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import app.dao.DataAccessImpl;
 import app.dao.IDataAccess;
 import app.domain.Employee;
@@ -22,5 +25,32 @@ public class EmployeeService {
 	
 	public Employee getEmployeeById(String employeeCode) {
 		return dataAccess.get(employeeCode);
+	}
+	
+	public List<Employee> getAllEmployee(){
+		return dataAccess.getAll();
+	}
+	
+	public List<Employee> getAllEmployee(String Department,String Branch,String query){
+		
+		List<Employee> list=getAllEmployee()
+				.stream()
+				.filter(x->x.getFirstName().contains(query) || x.getLastName().contains(query) || x.getEmpCode().contains(query))
+				.collect(Collectors.toList());
+		
+		if(Department=="" && Branch=="")
+			return list;
+		
+		list=list.stream()
+				.filter(x->x.getDepartment().getDepartmentName().contains(Department) || x.getDepartment().getDepartmentCode().contains(Department))
+				.collect(Collectors.toList());
+		
+		if(Branch=="")
+			return list;
+		
+		return list=list.stream()
+				.filter(x->x.getBranch().getBranchName().contains(Branch) || x.getBranch().getBranchCode().contains(Branch))
+				.collect(Collectors.toList());
+		
 	}
 }

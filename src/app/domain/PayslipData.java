@@ -125,6 +125,7 @@ public class PayslipData {
 	
 	public void print() {
 		
+		System.out.println(String.format("FirstName:%a LastName:%b",employeeInfo.getFirstName(),employeeInfo.getLastName()));
 	}
 }
 

@@ -41,6 +41,7 @@ public class EmployeeService {
 		if(Department=="" && Branch=="")
 			return list;
 		
+		if(Department!="" )
 		list=list.stream()
 				.filter(x->x.getDepartment().getDepartmentName().contains(Department) || x.getDepartment().getDepartmentCode().contains(Department))
 				.collect(Collectors.toList());

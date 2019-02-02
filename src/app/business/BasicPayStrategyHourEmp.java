@@ -7,7 +7,7 @@ public class BasicPayStrategyHourEmp implements IBasicPayStrategy {
 	@Override
 	public double calcBasic(Employee e, IPayslipPeriod p) {
 		// TODO Auto-generated method stub
-		double hourlyWage=0;
+		double hourlyWage=e.getBasicSalary();
 		double totalWorkingHr=0;
 		return hourlyWage*totalWorkingHr;
 	}

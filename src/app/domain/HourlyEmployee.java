@@ -3,8 +3,7 @@ package app.domain;
 import java.time.LocalDate;
 
 import app.business.visitor.IPayslipVisitor;
-
-/*Owner: Jmmy*/
+ 
 public class HourlyEmployee extends Employee{
 	
 	public HourlyEmployee(String empCode, String firstName, String lastName, String zipcode, String phone,

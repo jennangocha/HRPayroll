@@ -2,7 +2,7 @@ package app.business;
 
 import java.util.Map;
 
-import app.domain.PayslipData;
+import app.business.prototype.PayslipData;
 
 public interface IPayslipTemplete {
 

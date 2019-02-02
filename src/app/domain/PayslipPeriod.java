@@ -14,10 +14,10 @@ public class PayslipPeriod implements IPayslipPeriod{
 		this.from = from;
 		this.to = to;
 	}
-	public Date getFrom() {
+	public Date getFromDate() {
 		return from;
 	}
-	public Date getTo() {
+	public Date getToDate() {
 		return to;
 	}
 	

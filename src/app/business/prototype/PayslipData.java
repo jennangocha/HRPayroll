@@ -1,12 +1,16 @@
-package app.domain;
+package app.business.prototype;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import app.business.*; 
+import app.business.*;
+import app.domain.Employee;
+import app.domain.PayslipInfo;
+import app.domain.PayslipPeriod;
+import app.domain.StrategyType; 
 /*Owner: Jmmy*/
-public class PayslipData {
+public class PayslipData implements IPrototype{
 
 	private Employee employeeInfo;
 	private IPayslipPeriod payslipPeriod;
@@ -126,6 +130,19 @@ public class PayslipData {
 	public void print() {
 		
 		System.out.println(String.format("FirstName:%a LastName:%b",employeeInfo.getFirstName(),employeeInfo.getLastName()));
+	}
+	
+	public Object clone() {
+		
+		PayslipData clone=new PayslipData();
+		Employee e=this.employeeInfo;
+		IPayslipPeriod p=new PayslipPeriod(this.payslipPeriod.getFromDate(), this.payslipPeriod.getToDate());		 
+		clone.setEmployeeInfo(e);
+		clone.setPayslipPeriod(p);
+		for(PayslipInfo i : this.payslipInfo)
+			clone.payslipInfo.add(i);
+		
+		return clone;
 	}
 }
 

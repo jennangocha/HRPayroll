@@ -7,7 +7,7 @@ import app.business.IEmployeePayslip;
 import app.business.visitor.IPayslipVisitor;
 
 /**
- * Owner: Jmmy, luungocha
+ * Owner: luungocha
  * */
 public abstract class Employee implements IEmployeePayslip{
 

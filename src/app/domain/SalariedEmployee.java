@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import app.business.visitor.IPayslipVisitor;
 
-/*Owner: Jmmy*/
+
 public class SalariedEmployee extends Employee {
 
 	public SalariedEmployee(String empCode, String firstName, String lastName, String zipcode, String phone,

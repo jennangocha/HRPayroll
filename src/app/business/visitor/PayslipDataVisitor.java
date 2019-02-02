@@ -9,6 +9,7 @@ import app.business.abstractFactory.PayrollCalStraFactoryHourEmp;
 import app.business.abstractFactory.PayrollCalStraFactorySalEmp;
 import app.business.builder.PayslipDataBuilder;
 import app.business.builder.PayslipDataDirector;
+import app.business.prototype.PayslipData;
 import app.domain.*; 
 /*Owner: Jmmy*/
 public class PayslipDataVisitor implements IPayslipVisitor {

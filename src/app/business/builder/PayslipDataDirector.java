@@ -2,8 +2,8 @@ package app.business.builder;
 
 import app.business.IPayslipPeriod;
 import app.business.abstractFactory.IPayrollCalculationStrategyFactory;
+import app.business.prototype.PayslipData;
 import app.domain.Employee;
-import app.domain.PayslipData;
 import app.domain.PayslipPeriod;
 /*Owner: Jmmy*/
 public class PayslipDataDirector {

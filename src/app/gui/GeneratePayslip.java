@@ -6,6 +6,7 @@ import java.util.Set;
 
 import app.domain.Employee;
 import app.domain.EmployeeInfoPayslipDisplay;
+import app.domain.PayslipPeriod;
 import app.domain.User;
 import app.service.EmployeeService;
 import javafx.collections.FXCollections;
@@ -41,17 +42,15 @@ public class GeneratePayslip  extends Stage {
 	
 	private Label lblTitle=new Label("Generate Payslip");
 	
-	private Label lblEmployee=new Label("Enter Employee Info:");
+	private Label lblEmployee=new Label("Enter Employee Info :");
 	
-	private Label lblEmpName=new Label("Name");
-	private Label lblEmpCode=new Label("Code");
-	private Label lblEmpDept=new Label("Department");
-	private Label lblEmpBranch=new Label("Branch");
-	private Label lblEmpStatus=new Label("Status");
+	 
+	private Label lblEmpDept=new Label("Department :");
+	private Label lblEmpBranch=new Label("Branch :"); 
 	
-	private Label lblPayslipTemplate=new Label("Payslip Template");
+	private Label lblPayslipTemplate=new Label("Payslip Template :");
 	
-	private Label lblPeriod=new Label("Period");
+	private Label lblPeriod=new Label("Pay Period :");
 	
 	private TextField txtSearch=new TextField();	 
 	private TextField txtDept=new TextField();
@@ -88,32 +87,32 @@ public class GeneratePayslip  extends Stage {
 		tblEmployee.setEditable(false);
 		
 		TableColumn<EmployeeInfoPayslipDisplay, String> dateCol1 = new TableColumn<>("FirstName");
-		dateCol1.setPrefWidth(120);
+		dateCol1.setPrefWidth(130);
         dateCol1.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
         
         TableColumn<EmployeeInfoPayslipDisplay, String> dateCol2 = new TableColumn<>("LastName");
-        dateCol2.setPrefWidth(120);
+        dateCol2.setPrefWidth(130);
         dateCol2.setCellValueFactory(new PropertyValueFactory<>("LastName"));
         
         TableColumn<EmployeeInfoPayslipDisplay, String> dateCol3 = new TableColumn<>("Code");
-        dateCol2.setPrefWidth(100);
-        dateCol2.setCellValueFactory(new PropertyValueFactory<>("Code"));
+        dateCol3.setPrefWidth(80);
+        dateCol3.setCellValueFactory(new PropertyValueFactory<>("Code"));
         
         TableColumn<EmployeeInfoPayslipDisplay, String> dateCol4 = new TableColumn<>("Department");
-        dateCol2.setPrefWidth(150);
-        dateCol2.setCellValueFactory(new PropertyValueFactory<>("Department"));
+        dateCol4.setPrefWidth(130);
+        dateCol4.setCellValueFactory(new PropertyValueFactory<>("Department"));
         
         TableColumn<EmployeeInfoPayslipDisplay, String> dateCol5 = new TableColumn<>("Branch");
-        dateCol2.setPrefWidth(150);
-        dateCol2.setCellValueFactory(new PropertyValueFactory<>("Branch"));
+        dateCol5.setPrefWidth(130);
+        dateCol5.setCellValueFactory(new PropertyValueFactory<>("Branch"));
         
         TableColumn<EmployeeInfoPayslipDisplay, Double> dateCol6 = new TableColumn<>("BasicPay");
-        dateCol2.setPrefWidth(150);
-        dateCol2.setCellValueFactory(new PropertyValueFactory<>("BasicPay"));
+        dateCol6.setPrefWidth(150);
+        dateCol6.setCellValueFactory(new PropertyValueFactory<>("BasicPay"));
         
         ScrollBar table1VerticalScrollBar = findScrollBar( tblEmployee, Orientation.VERTICAL);
         tblEmployee.getColumns().addAll(dateCol1,dateCol2,dateCol3,dateCol4,dateCol5,dateCol6); 
-        tblEmployee.setPrefSize( 500, 200 );
+        tblEmployee.setPrefSize( 600, 200 );
         tblEmployee.setItems(data);	
 		
 	
@@ -145,7 +144,7 @@ public class GeneratePayslip  extends Stage {
 		
 		grid.add(btnSearch,6, 1);	
 		
-		grid.add(tblEmployee, 0,2,6,1);
+		grid.add(tblEmployee, 0,2,7,1);
 		 
 		grid.add(lblPeriod, 0, 3);
 		grid.add(datePickerfrom, 1, 3);
@@ -174,7 +173,7 @@ public class GeneratePayslip  extends Stage {
 			@Override
 			public void handle(ActionEvent event) {
 				// TODO Auto-generated method stub
-				refreshEmployeeList(EmployeeService.getInstance().getAllEmployee(txtDept.getText().trim(), txtBranch.getText().trim(), txtSearch.getText().trim()));
+				refreshEmployeeList(getEmployeeList());
 			}
 		});
 	}
@@ -185,6 +184,16 @@ public class GeneratePayslip  extends Stage {
 		for(Employee emp : e) 
 			data.add(new EmployeeInfoPayslipDisplay(emp.getFirstName(), emp.getLastName(), emp.getEmpCode(), emp.getDepartment().getDepartmentName(), emp.getBranch().getBranchName(), 0.00));
 		
+	}
+	
+	private List<Employee> getEmployeeList(){
+		return EmployeeService.getInstance().getAllEmployee(txtDept.getText().trim(), txtBranch.getText().trim(), txtSearch.getText().trim())
+	}
+	
+	private PayslipPeriod getPayPeriod() {
+		PayslipPeriod period=new PayslipPeriod(from, to);
+		
+		return period;
 	}
 	
 	 private ScrollBar findScrollBar(TableView<?> table, Orientation orientation) {

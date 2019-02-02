@@ -86,6 +86,7 @@ public class Login extends Application{
 		loginStage.setScene(scene);
 		loginStage.show();
 		
+		
 	}
 	
 	private void setEvent() {

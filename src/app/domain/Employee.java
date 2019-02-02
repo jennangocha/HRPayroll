@@ -176,7 +176,7 @@ public abstract class Employee implements IEmployeePayslip{
 	public Department getDepartment() {
 		return department;
 	}
-
+	
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
@@ -188,7 +188,12 @@ public abstract class Employee implements IEmployeePayslip{
 	public void setBranch(Branch branch) {
 		this.branch = branch;
 	}
-
+	public String getDepartmentName() {
+		return department.getDepartmentName();
+	}
+	public String getBranchName() {
+		return branch.getBranchName();
+	}
 	@Override
 	public abstract void accept(IPayslipVisitor visitor);
 }

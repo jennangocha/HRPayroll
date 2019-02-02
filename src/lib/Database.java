@@ -48,9 +48,10 @@ public class Database {
 		}  
 
 	}
-	public void getdata(String Sql) {
+	public List<Map<String, String>> getdata(String Sql) {
 		Connection con=connect();
 		Statement stmt;
+		List<Map<String, String>> obj=new ArrayList<Map<String, String>>();
 		try {
 			stmt = con.createStatement();
 			con.createStatement();  
@@ -60,20 +61,23 @@ public class Database {
 			for(int i=1;i<=meta.getColumnCount();i++) {
 				colName[i]=meta.getColumnLabel(i);
 			}
-			Map<String, String> map1 = new HashMap<String, String>();
-			List<Map<String, String>> obj=new ArrayList<Map<String, String>>();
+			
+			
 			while(rs.next()) {
+				Map<String, String> map1 = new HashMap<String, String>();
 				for(int i=1;i<=meta.getColumnCount();i++) {
 					map1.put(colName[i], rs.getString(i));
 					}
 				obj.add(map1);
 			}
-			System.out.println(obj); 
+			//System.out.println(obj); 
 			con.close();  
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return obj;
 	}
 	
 }

@@ -7,6 +7,8 @@ import app.controller.Reports;
 import app.domain.User;
 import app.reports.BranchReport;
 import app.reports.DepartmentReport;
+import app.reports.EmployeeReport;
+import app.service.EmployeeService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -73,10 +75,10 @@ public class GenerateReport  extends Stage  {
 	}
 	
 	private void setEvent() {
-		deptReport.setOnAction(new EventHandler<ActionEvent>() {			
+		empReport.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent event) {
-				Reports r=new Reports(new DepartmentReport());
+				Reports r=new Reports(new EmployeeReport());
 				showReport(r);							
 			}
 		});
@@ -84,6 +86,13 @@ public class GenerateReport  extends Stage  {
 			@Override
 			public void handle(ActionEvent event) {
 				Reports r=new Reports(new BranchReport());
+				showReport(r);							
+			}
+		});
+		deptReport.setOnAction(new EventHandler<ActionEvent>() {			
+			@Override
+			public void handle(ActionEvent event) {
+				Reports r=new Reports(new DepartmentReport());
 				showReport(r);							
 			}
 		});

@@ -9,7 +9,7 @@ import app.business.visitor.IPayslipVisitor;
 /**
  * Owner: luungocha
  * */
-public abstract class Employee implements IEmployeePayslip{
+public abstract class Employee implements IEmployeePayslip, Cloneable{
 
 	private String empCode;
 	private String firstName;
@@ -51,7 +51,19 @@ public abstract class Employee implements IEmployeePayslip{
 		this.branch = branch;
 	}
 
-
+	public Object clone() 
+    { 
+        Object clone = null; 
+        try 
+        { 
+            clone = super.clone(); 
+        }  
+        catch (CloneNotSupportedException e)  
+        { 
+            e.printStackTrace(); 
+        } 
+        return clone; 
+    } 
 
 	public String getFirstName() {
 		return firstName;

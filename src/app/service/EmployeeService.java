@@ -18,9 +18,8 @@ public class EmployeeService {
 		return instance; 
 	}
 	
-	public Employee addNewUser(Employee emp) {
-		String employeeName = emp.getFirstName() + emp.getLastName();
-		return dataAccess.add(employeeName, emp);
+	public Employee addNewEmployee(Employee emp) {
+		return dataAccess.add(emp.getEmpCode(), emp);
 	}
 	
 	public Employee getEmployeeById(String employeeCode) {

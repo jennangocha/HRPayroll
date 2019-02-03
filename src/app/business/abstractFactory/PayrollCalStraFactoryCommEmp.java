@@ -3,11 +3,11 @@ package app.business.abstractFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.business.BasicPayStrategyCommEmp;
-import app.business.DeductionStrategyLeaveEmp;
-import app.business.IBasicPayStrategy;
-import app.business.IDeductionStrategy;
-import app.business.IEarningStrategy;
+import app.business.strategy.BasicPayStrategyCommEmp;
+import app.business.strategy.DeductionStrategyLeaveEmp;
+import app.business.strategy.IBasicPayStrategy;
+import app.business.strategy.IDeductionStrategy;
+import app.business.strategy.IEarningStrategy;
 /*Owner: Jmmy*/
 public class PayrollCalStraFactoryCommEmp implements IPayrollCalculationStrategyFactory {
  	

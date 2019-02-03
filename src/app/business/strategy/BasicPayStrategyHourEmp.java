@@ -1,11 +1,12 @@
-package app.business;
-
+package app.business.strategy;
+ 
 import app.domain.Employee;
+import app.domain.PayslipPeriod;
 
 public class BasicPayStrategyHourEmp implements IBasicPayStrategy {
 
 	@Override
-	public double calcBasic(Employee e, IPayslipPeriod p) {
+	public double calcBasic(Employee e, PayslipPeriod p) {
 		// TODO Auto-generated method stub
 		double hourlyWage=e.getBasicSalary();
 		double totalWorkingHr=0;

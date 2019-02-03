@@ -1,10 +1,9 @@
 package app.domain;
 
 import java.util.Date;
+ 
 
-import app.business.IPayslipPeriod;
-
-public class PayslipPeriod implements IPayslipPeriod{
+public class PayslipPeriod{
 
 	private Date from;
 	private Date to;

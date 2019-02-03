@@ -1,6 +1,9 @@
 package app.business.visitor;
 
-import app.domain.*; 
+import app.domain.CommissionedEmployee;
+import app.domain.HourlyEmployee;
+import app.domain.SalariedEmployee;
+
 /*Owner: Jmmy*/
 public interface IPayslipVisitor {
 

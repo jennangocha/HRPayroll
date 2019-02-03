@@ -15,7 +15,7 @@ import javafx.scene.control.Alert;
 
 public class PaySlipWriterXML implements IPaySlipWriter{
 	
-	PaySlipWriterXML() {}
+	private PaySlipWriterXML() {}
 	
 	public static PaySlipWriterXML getInstance() {
 		return SingletonHelper.INSTANCE;
@@ -29,22 +29,18 @@ public class PaySlipWriterXML implements IPaySlipWriter{
 	@Override
 	public void write(Map<String, PayslipData> data, String exportPath) {
 		// TODO Auto-generated method stub
-		for (Object key : data.keySet()) {
-            System.out.println("Key : " + key.toString());
-            data.get(key).print();
-        }
+		 
 		try {
-			for (Object key : data.keySet()) {            
-				
-					marshalingXML(data.get(key),exportPath);
-					showAlert(exportPath);			
-	        }
+			for (Object key : data.keySet())   
+					marshalingXML(data.get(key),exportPath);						
+	      
+			showAlert(exportPath);		
+			
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			showError(exportPath);
 			e.printStackTrace();
-		}
-		
+		}		
 		
 	}	
 	

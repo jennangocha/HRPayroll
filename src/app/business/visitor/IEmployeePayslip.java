@@ -1,6 +1,4 @@
-package app.business;
-
-import app.business.visitor.IPayslipVisitor;
+package app.business.visitor;
 
 /*Owner: Jmmy*/
 public interface IEmployeePayslip {

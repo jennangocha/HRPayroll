@@ -2,8 +2,7 @@ package app.business.proxy;
 
 import java.util.List;
 import java.util.Map;
-
-import app.business.IPayslipPeriod;
+ 
 import app.business.prototype.PayslipData;
 import app.business.visitor.PayslipDataVisitor;
 import app.domain.Employee;

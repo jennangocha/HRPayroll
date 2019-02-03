@@ -248,7 +248,7 @@ public class GeneratePayslip  extends Stage {
 		data.clear();
 		
 		for(Employee emp : e) 
-			data.add(new EmployeeInfoPayslipDisplay(emp.getFirstName(), emp.getLastName(), emp.getEmpCode(), emp.getDepartment().getDepartmentName(), emp.getBranch().getBranchName(), 0.00));
+			data.add(new EmployeeInfoPayslipDisplay(emp.getFirstName(), emp.getLastName(), emp.getEmpCode(), emp.getDepartment().getDepartmentName(), emp.getBranch().getBranchName(), emp.getBasicSalary()));
 		
 		if(e.size()<1)
 			showError("No employee found !");

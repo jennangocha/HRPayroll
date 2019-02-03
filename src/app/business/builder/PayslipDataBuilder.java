@@ -2,11 +2,10 @@ package app.business.builder;
 
 import java.util.List;
 
-import app.business.IBasicPayStrategy;
-import app.business.IDeductionStrategy;
-import app.business.IEarningStrategy;
-import app.business.IPayslipPeriod;
 import app.business.prototype.PayslipData;
+import app.business.strategy.IBasicPayStrategy;
+import app.business.strategy.IDeductionStrategy;
+import app.business.strategy.IEarningStrategy;
 import app.domain.Employee;
 import app.domain.PayslipPeriod;
 /*Owner: Jmmy*/
@@ -50,6 +49,12 @@ public class PayslipDataBuilder implements IPayslipDataBuilder{
 	public PayslipData getPayslipData() {
 		// TODO Auto-generated method stub
 		return payslipData;
-	}		
-	 
+	}
+
+	@Override
+	public void buildHook(Employee e) {
+		// TODO Auto-generated method stub
+		/*build hook*/
+	}	 
+	
 }

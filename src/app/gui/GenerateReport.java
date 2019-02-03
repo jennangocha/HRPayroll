@@ -5,10 +5,6 @@ import java.time.LocalDate;
 
 import app.controller.Reports;
 import app.domain.User;
-import app.reports.BranchReport;
-import app.reports.DepartmentReport;
-import app.reports.EmployeeReport;
-import app.reports.SalaryReport;
 import app.service.EmployeeService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,7 +26,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
-import javafx.stage.Stage; 
+import javafx.stage.Stage;
+import reports.strategy.BranchReport;
+import reports.strategy.DepartmentReport;
+import reports.strategy.EmployeeReport;
+import reports.strategy.SalaryReport; 
 /*Owner: Jmmy*/
 public class GenerateReport  extends Stage  {
 

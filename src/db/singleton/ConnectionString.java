@@ -1,4 +1,4 @@
-package lib;
+package db.singleton;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

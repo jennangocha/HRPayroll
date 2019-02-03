@@ -1,4 +1,4 @@
-package app.reports;
+package reports.strategy;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
@@ -10,5 +10,9 @@ public class StrategyReport {
 	}
 	public TableView getStrategy(TableView tbl1,Label lblCaption) {
 		return  strategy.getReport(tbl1,lblCaption);
+	}
+	public void getPdf() {
+		// TODO Auto-generated method stub
+		strategy.getPdf();
 	}
 }

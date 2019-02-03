@@ -1,4 +1,4 @@
-package app.reports;
+package reports.strategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,13 +6,14 @@ import java.util.Map;
 
 import app.domain.Branch;
 import app.domain.Department;
+import db.adapter.Database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lib.Database;
+import report.facade.PDF;
 
 public class BranchReport implements Ireports{
 
@@ -44,6 +45,15 @@ public class BranchReport implements Ireports{
 	        ObservableList data = FXCollections.observableList(list);
 	        tbl1.setItems(data);
         return tbl1;
+	}
+	public void getPdf() {
+		String[] column= {"Branch Name","Branch Code"};
+		Database db=new Database();
+		String[][] data=db.getdataString("select * from branch");	 
+	   
+		String title="Branch Report";
+		PDF p=new PDF();
+		p.createPDF(column, data, title);
 	}
 
 }

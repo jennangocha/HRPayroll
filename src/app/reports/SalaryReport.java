@@ -13,23 +13,24 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class EmployeeReport implements Ireports{
+public class SalaryReport implements Ireports{
 
 	@Override
 	public TableView getReport(TableView tbl1,Label lblCaption) {
 		// TODO Auto-generated method stub
 		
-		lblCaption.setText("Employee Report");
+		lblCaption.setText("Salary Report");
         TableColumn empCode = new TableColumn("Employee Code");
         TableColumn firstName = new TableColumn("First Name");
         TableColumn lastName = new TableColumn("First Name");
         TableColumn position =new TableColumn("Designation");
         TableColumn department =new TableColumn("Department");
         TableColumn branch =new TableColumn("Branch");
+        TableColumn salary =new TableColumn("Salary");
         
         EmployeeService empService = EmployeeService.getInstance();
        
-        tbl1.getColumns().addAll(empCode, firstName,lastName,position,department,branch);
+        tbl1.getColumns().addAll(empCode, firstName,lastName,position,department,branch,salary);
         
         
         empCode.setCellValueFactory(new PropertyValueFactory<>("empCode"));
@@ -38,7 +39,7 @@ public class EmployeeReport implements Ireports{
         position.setCellValueFactory(new PropertyValueFactory<>("position"));
         department.setCellValueFactory(new PropertyValueFactory<>("departmentName"));
         branch.setCellValueFactory(new PropertyValueFactory<>("branchName"));
-        
+        salary.setCellValueFactory(new PropertyValueFactory<>("basicSalary"));
         List list = new ArrayList();
         for(int i=0;i< empService.getAllEmployee().size();i++) {
         	list.add(empService.getAllEmployee().get(i));

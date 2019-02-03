@@ -8,6 +8,7 @@ import app.domain.User;
 import app.reports.BranchReport;
 import app.reports.DepartmentReport;
 import app.reports.EmployeeReport;
+import app.reports.SalaryReport;
 import app.service.EmployeeService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -93,6 +94,13 @@ public class GenerateReport  extends Stage  {
 			@Override
 			public void handle(ActionEvent event) {
 				Reports r=new Reports(new DepartmentReport());
+				showReport(r);							
+			}
+		});
+		salaryReport.setOnAction(new EventHandler<ActionEvent>() {			
+			@Override
+			public void handle(ActionEvent event) {
+				Reports r=new Reports(new SalaryReport());
 				showReport(r);							
 			}
 		});

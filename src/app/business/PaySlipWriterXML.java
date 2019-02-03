@@ -12,7 +12,7 @@ import javax.xml.bind.Marshaller;
 import app.business.prototype.PayslipData; 
 import app.domain.Employee;
 import javafx.scene.control.Alert;
-
+/*Owner: Jmmy*/
 public class PaySlipWriterXML implements IPaySlipWriter{
 	
 	private PaySlipWriterXML() {}

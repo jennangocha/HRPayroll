@@ -8,7 +8,7 @@ import app.business.strategy.DeductionStrategyLeaveEmp;
 import app.business.strategy.IBasicPayStrategy;
 import app.business.strategy.IDeductionStrategy;
 import app.business.strategy.IEarningStrategy;
-
+/*Owner: Jmmy*/
 public class PayrollCalStraFactorySalEmp implements IPayrollCalculationStrategyFactory{
 	
 	@Override

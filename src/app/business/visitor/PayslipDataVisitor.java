@@ -2,15 +2,18 @@ package app.business.visitor;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import app.business.IPayslipPeriod;
+ 
 import app.business.abstractFactory.PayrollCalStraFactoryCommEmp;
 import app.business.abstractFactory.PayrollCalStraFactoryHourEmp;
 import app.business.abstractFactory.PayrollCalStraFactorySalEmp;
 import app.business.builder.PayslipDataBuilder;
 import app.business.builder.PayslipDataDirector;
 import app.business.prototype.PayslipData;
-import app.domain.*; 
+import app.domain.CommissionedEmployee;
+import app.domain.HourlyEmployee;
+import app.domain.PayslipPeriod;
+import app.domain.SalariedEmployee;
+  
 /*Owner: Jmmy*/
 public class PayslipDataVisitor implements IPayslipVisitor {
 

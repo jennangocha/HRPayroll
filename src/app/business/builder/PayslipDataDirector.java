@@ -1,6 +1,5 @@
 package app.business.builder;
-
-import app.business.IPayslipPeriod;
+ 
 import app.business.abstractFactory.IPayrollCalculationStrategyFactory;
 import app.business.prototype.PayslipData;
 import app.domain.Employee;

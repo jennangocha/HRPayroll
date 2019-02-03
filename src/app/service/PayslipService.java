@@ -1,11 +1,9 @@
 package app.service;
-
-import java.util.Iterator;
+ 
 import java.util.List;
 import java.util.Map;
 
-import app.business.IPaySlipWriter;
-import app.business.IPayslipPeriod; 
+import app.business.IPaySlipWriter; 
 import app.business.prototype.PayslipData;
 import app.business.proxy.PaySlipGeneratorProxy;
 import app.domain.Employee;

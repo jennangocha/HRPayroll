@@ -1,12 +1,12 @@
 package app.business.abstractFactory;
-
-import app.business.IPayslipPeriod;
+ 
 import app.domain.Employee;
+import app.domain.PayslipPeriod;
 
 public class BasicPayStrategyCommEmp implements IBasicPayStrategy{
 	
 	@Override
-	public double calcBasic(Employee e, IPayslipPeriod p) {
+	public double calcBasic(Employee e, PayslipPeriod p) {
 		// TODO Auto-generated method stub
 		double commession=0;
 		double baseSalary=e.getBasicSalary();

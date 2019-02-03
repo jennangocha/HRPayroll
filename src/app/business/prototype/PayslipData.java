@@ -8,8 +8,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
-import app.business.*;
+ 
 import app.business.abstractFactory.IBasicPayStrategy;
 import app.business.abstractFactory.IDeductionStrategy;
 import app.business.abstractFactory.IEarningStrategy;
@@ -42,7 +41,7 @@ public class PayslipData implements IPrototype{
 		this.employeeInfo = employeeInfo;
 	}
  
-	public IPayslipPeriod getPayslipPeriod() {
+	public PayslipPeriod getPayslipPeriod() {
 		return payslipPeriod;
 	}
 	public void setPayslipPeriod(PayslipPeriod payslipPeriod) {

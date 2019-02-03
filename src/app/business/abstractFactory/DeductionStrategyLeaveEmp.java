@@ -1,12 +1,12 @@
 package app.business.abstractFactory;
-
-import app.business.IPayslipPeriod;
+ 
 import app.domain.Employee;
+import app.domain.PayslipPeriod;
 
 public class DeductionStrategyLeaveEmp implements IDeductionStrategy{
 
 	@Override
-	public double calcDedu(Employee e, IPayslipPeriod p) {
+	public double calcDedu(Employee e, PayslipPeriod p) {
 		// TODO Auto-generated method stub
 		double totalAbsent=0;
 		double deductionPerDay=0;

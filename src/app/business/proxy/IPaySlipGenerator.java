@@ -2,10 +2,10 @@ package app.business.proxy;
 
 import java.util.List;
 import java.util.Map;
-
-import app.business.IPayslipPeriod;
+ 
 import app.business.prototype.PayslipData;
-import app.domain.*;
+import app.domain.Employee;
+import app.domain.PayslipPeriod;
 import app.exceptions.AuthenticationError; 
 /*Owner: Jmmy*/
 public interface IPaySlipGenerator {

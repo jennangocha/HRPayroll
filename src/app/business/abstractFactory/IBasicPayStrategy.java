@@ -1,12 +1,13 @@
 package app.business.abstractFactory;
 
-import app.business.IPayslipPeriod;
-import app.domain.*;
+import app.domain.Employee;
+import app.domain.PayslipPeriod;
+import app.domain.StrategyType;
 
 /*Owner: Jmmy*/
 public interface IBasicPayStrategy {
 	public String Type=StrategyType.BasicPay.getName();	
-	public double calcBasic(Employee e,IPayslipPeriod p);
+	public double calcBasic(Employee e,PayslipPeriod p);
 	public String getTitle();
 	
 }

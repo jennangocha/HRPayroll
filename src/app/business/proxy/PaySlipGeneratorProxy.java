@@ -1,11 +1,12 @@
 package app.business.proxy;
 
 import java.util.List;
-import java.util.Map;
-
-import app.business.IPayslipPeriod;
+import java.util.Map; 
 import app.business.prototype.PayslipData;
-import app.domain.*;
+import app.domain.PayslipPeriod;
+import app.domain.User;
+import app.domain.AccessLevel;
+import app.domain.Employee;
 import app.exceptions.AuthenticationError;
 import app.service.UserService;
 /*Owner: Jmmy*/

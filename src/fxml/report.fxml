@@ -2,7 +2,9 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
@@ -20,7 +22,12 @@
                <font>
                   <Font size="24.0" />
                </font></Label>
-            <Button fx:id="btnexport" layoutX="830.0" layoutY="558.0" mnemonicParsing="false" text="Export" />
+            <Button fx:id="btnexport" layoutX="821.0" layoutY="558.0" mnemonicParsing="false" text="Export" />
+            <RadioButton fx:id="SelExcel" layoutX="741.0" layoutY="562.0" mnemonicParsing="false" text="Excel">
+               <toggleGroup>
+                  <ToggleGroup fx:id="group" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="SelPDF" layoutX="676.0" layoutY="562.0" mnemonicParsing="false" selected="true" text="PDF" toggleGroup="$group" />
          </children>
       </AnchorPane>
    </center>

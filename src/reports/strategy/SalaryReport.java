@@ -5,6 +5,7 @@ import java.util.List;
 
 import app.data.EmployeeData;
 import app.domain.Department;
+import app.domain.Employee;
 import app.service.EmployeeService;
 import db.adapter.Database;
 import javafx.collections.FXCollections;
@@ -14,6 +15,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import report.facade.PDF;
+import reports.factory.ExportFactory;
+import reports.factory.ExportReport;
 
 public class SalaryReport implements Ireports{
 
@@ -24,7 +27,7 @@ public class SalaryReport implements Ireports{
 		lblCaption.setText("Salary Report");
         TableColumn empCode = new TableColumn("Employee Code");
         TableColumn firstName = new TableColumn("First Name");
-        TableColumn lastName = new TableColumn("First Name");
+        TableColumn lastName = new TableColumn("Last Name");
         TableColumn position =new TableColumn("Designation");
         TableColumn department =new TableColumn("Department");
         TableColumn branch =new TableColumn("Branch");
@@ -52,13 +55,28 @@ public class SalaryReport implements Ireports{
         tbl1.setItems(data);
         return tbl1;
 	}
-	public void getPdf() {
-		String[] column= {"Branch Name","Branch Code"};
-		Database db=new Database();
-		String[][] data=db.getdataString("select * from branch");	 
+	public void getExportReport(String name) {
+		String[] column= {"Employee Code","Employee Name","Designation","Department","Salary"};
+		
+		EmployeeService empService = EmployeeService.getInstance();
+		String[][] data= new String[empService.getAllEmployee().size()][column.length];
+		int index=0;
+		for(int i=0;i< empService.getAllEmployee().size();i++) {
+			index=0;
+			Employee e=empService.getAllEmployee().get(i);
+			data[i][index++]=e.getEmpCode();
+			data[i][index++]=e.getFirstName()+" "+e.getLastName();		
+			data[i][index++]=e.getPosition();
+			data[i][index++]=e.getDepartmentName();
+			data[i][index++]=e.getBasicSalary().toString();
+			 
+		}
+		//String[][] data=db.getdataString("select * from branch");	 
 	   
-		String title="Branch Report";
-		PDF p=new PDF();
-		p.createPDF(column, data, title);
+		String title="Salary Report";
+		
+		ExportFactory factory=new ExportFactory();
+		ExportReport rpt=factory.getReport(name);
+		rpt.export(column, data, title);
 	}
 }

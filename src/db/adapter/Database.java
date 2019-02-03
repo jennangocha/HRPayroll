@@ -12,7 +12,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.JOptionPane;
+
 import db.singleton.ConnectionString;
+import javafx.scene.control.Alert;
 
 
 public class Database implements Target {
@@ -25,10 +28,11 @@ public class Database implements Target {
 			ConnectionStr=c.getPropValues().get("conString");
 			username=c.getPropValues().get("user");
 			password=c.getPropValues().get("password");
-			System.out.println(ConnectionStr+password);
+			//System.out.println(ConnectionStr+password);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			e.getMessage();
 		}
 	}
 	public Connection connect(){

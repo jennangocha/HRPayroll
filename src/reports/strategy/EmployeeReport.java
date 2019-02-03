@@ -5,6 +5,7 @@ import java.util.List;
 
 import app.data.EmployeeData;
 import app.domain.Department;
+import app.domain.Employee;
 import app.service.EmployeeService;
 import db.adapter.Database;
 import javafx.collections.FXCollections;
@@ -14,6 +15,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import report.facade.PDF;
+import reports.factory.ExportFactory;
+import reports.factory.ExportReport;
 
 public class EmployeeReport implements Ireports{
 
@@ -51,13 +54,27 @@ public class EmployeeReport implements Ireports{
         tbl1.setItems(data);
         return tbl1;
 	}
-	public void getPdf() {
-		String[] column= {"Branch Name","Branch Code"};
-		Database db=new Database();
-		String[][] data=db.getdataString("select * from branch");	 
+	public void getExportReport(String name) {
+String[] column= {"Employee Code","Employee Name","Designation","Department","Branch"};
+		
+		EmployeeService empService = EmployeeService.getInstance();
+		String[][] data= new String[empService.getAllEmployee().size()][column.length];
+		int index=0;
+		for(int i=0;i< empService.getAllEmployee().size();i++) {
+			index=0;
+			Employee e=empService.getAllEmployee().get(i);
+			data[i][index++]=e.getEmpCode();
+			data[i][index++]=e.getFirstName()+" "+e.getLastName();		
+			data[i][index++]=e.getPosition();
+			data[i][index++]=e.getDepartmentName();
+			data[i][index++]=e.getBranchName();
+			 
+		}
 	   
-		String title="Branch Report";
-		PDF p=new PDF();
-		p.createPDF(column, data, title);
+		String title="Employee Report";
+
+		ExportFactory factory=new ExportFactory();
+		ExportReport rpt=factory.getReport(name);
+		rpt.export(column, data, title);
 	}
 }

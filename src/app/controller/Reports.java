@@ -19,8 +19,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -34,6 +36,9 @@ public class Reports implements Initializable{
 	@FXML TableView tbl1;
 	@FXML Label lblCaption;
 	@FXML Button btnexport;
+	@FXML RadioButton SelExcel;
+	@FXML RadioButton SelPDF;
+	@FXML ToggleGroup group;
 	 StrategyReport r=new StrategyReport();
 	
 	public Reports(Ireports ir) {
@@ -46,8 +51,9 @@ public class Reports implements Initializable{
 		 
 		 tbl1=r.getStrategy(tbl1,lblCaption);
 		 btnexport.setOnAction(event -> {
-				System.out.println(lblCaption.getText());
-				r.getPdf();
+			RadioButton selectedRadioButton = (RadioButton) group.getSelectedToggle();
+			String actionName = selectedRadioButton.getText();
+			r.getExportReport(actionName);
 		});
 	}
 	

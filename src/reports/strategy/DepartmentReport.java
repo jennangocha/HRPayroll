@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.poi.util.SystemOutLogger;
+
 import app.domain.Department;
 import db.adapter.Database;
 import javafx.collections.FXCollections;
@@ -13,6 +15,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import report.facade.PDF;
+import reports.factory.ExportFactory;
+import reports.factory.ExportReport;
 
 public class DepartmentReport implements Ireports{
 
@@ -45,13 +49,14 @@ public class DepartmentReport implements Ireports{
         tbl1.setItems(data);
         return tbl1;
 	}
-	public void getPdf() {
+	public void getExportReport(String name) {
 		String[] column= {"Department Name","Department Code"};
 		Database db=new Database();
 		String[][] data=db.getdataString("select * from department");	 
 	   
 		String title="Department Report";
-		PDF p=new PDF();
-		p.createPDF(column, data, title);
+		ExportFactory factory=new ExportFactory();
+		ExportReport rpt=factory.getReport(name);
+		rpt.export(column, data, title);
 	}
 }

@@ -14,6 +14,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import report.facade.PDF;
+import reports.factory.ExportFactory;
+import reports.factory.ExportReport;
 
 public class BranchReport implements Ireports{
 
@@ -46,14 +48,16 @@ public class BranchReport implements Ireports{
 	        tbl1.setItems(data);
         return tbl1;
 	}
-	public void getPdf() {
+	public void getExportReport(String name) {
 		String[] column= {"Branch Name","Branch Code"};
 		Database db=new Database();
 		String[][] data=db.getdataString("select * from branch");	 
 	   
 		String title="Branch Report";
-		PDF p=new PDF();
-		p.createPDF(column, data, title);
+		
+		ExportFactory factory=new ExportFactory();
+		ExportReport rpt=factory.getReport(name);
+		rpt.export(column, data, title);
 	}
 
 }

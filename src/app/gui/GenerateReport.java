@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -116,13 +117,17 @@ public class GenerateReport  extends Stage  {
 			Stage stage = new Stage();			
 			
 			stage.initModality(Modality.APPLICATION_MODAL);
-			stage.setTitle("Dashboard");
+			stage.setTitle("Report");
 			stage.setScene(new Scene(root1));
 			stage.setResizable(false);
 			stage.show();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			e.getMessage();
+			Alert a=new Alert(Alert.AlertType.ERROR, "Please contact with Administrator!!");
+			a.setHeaderText("DB Connection Error");
+			a.showAndWait();
 		}		
 	}
 

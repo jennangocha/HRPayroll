@@ -11,8 +11,8 @@ public class StrategyReport {
 	public TableView getStrategy(TableView tbl1,Label lblCaption) {
 		return  strategy.getReport(tbl1,lblCaption);
 	}
-	public void getPdf() {
+	public void getExportReport(String name) {
 		// TODO Auto-generated method stub
-		strategy.getPdf();
+		strategy.getExportReport(name);
 	}
 }

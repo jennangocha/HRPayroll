@@ -27,7 +27,7 @@ public class PDF {
 	         String filepath="download\\"+filename+".pdf";
 	         int k=1;
 	         String temp="";
-	         while(k<10) {
+	         while(k<50) {
 		         File f = new File(filepath);
 		         if(f.exists() && !f.isDirectory()) { 
 		        	 temp=filename+k;
@@ -39,16 +39,18 @@ public class PDF {
 	    	 PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filepath));
 	         document.open();
 	        
+	         Font font1 = new Font(FontFamily.COURIER, 9, Font.NORMAL, BaseColor.BLACK);  
 	         Font code = new Font(FontFamily.COURIER, 14, Font.BOLD, BaseColor.DARK_GRAY);  
 	         Paragraph p=new Paragraph(title+"\n\n",code);
 	         p.setAlignment(Element.ALIGN_CENTER);
 	         document.add(p);
 	         int numColumns = column.length;
+	         int numRows=data.length;
 	            PdfPTable table = new PdfPTable(numColumns);
 	            PdfPCell[] cells = new PdfPCell[numColumns];
 	            table.getDefaultCell().setBorderWidth(0f);
 	            for (int i = 0; i < numColumns; i++) {
-	                cells[i] = new PdfPCell(new Phrase(column[i]));
+	                cells[i] = new PdfPCell(new Phrase(column[i],font1));
 	                cells[i].setPadding(10);
 	                cells[i].setBorder(0);  
 	                cells[i].setBorderWidthBottom(1); 
@@ -58,13 +60,13 @@ public class PDF {
 	            table.completeRow();
 
 	            cells = new PdfPCell[numColumns];
-	            for (int i = 0; i < numColumns; i++) {
+	            for (int i = 0; i < numRows; i++) {
 	            	 for (int j = 0; j < numColumns; j++) {
-		                cells[i] = new PdfPCell(new Phrase(data[i][j]));
-		                cells[i].setPadding(10);
-		                cells[i].setBorder(0);   
-		                cells[i].setBorderWidthBottom(1); 
-		                table.addCell(cells[i]);
+		                cells[j] = new PdfPCell(new Phrase(data[i][j],font1));
+		                cells[j].setPadding(10);
+		                cells[j].setBorder(0);   
+		                cells[j].setBorderWidthBottom(1); 
+		                table.addCell(cells[j]);
 	            	 }
 	            }
 	            

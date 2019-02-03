@@ -1,6 +1,10 @@
 package app.business.abstractFactory;
 
 import java.util.List;
+
+import app.business.strategy.IBasicPayStrategy;
+import app.business.strategy.IDeductionStrategy;
+import app.business.strategy.IEarningStrategy;
 /*Owner: Jmmy*/
 public interface IPayrollCalculationStrategyFactory {
 

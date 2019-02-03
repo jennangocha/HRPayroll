@@ -8,10 +8,10 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
- 
-import app.business.abstractFactory.IBasicPayStrategy;
-import app.business.abstractFactory.IDeductionStrategy;
-import app.business.abstractFactory.IEarningStrategy;
+
+import app.business.strategy.IBasicPayStrategy;
+import app.business.strategy.IDeductionStrategy;
+import app.business.strategy.IEarningStrategy;
 import app.domain.Employee;
 import app.domain.PayslipInfo;
 import app.domain.PayslipPeriod;
@@ -140,13 +140,7 @@ public class PayslipData implements IPrototype{
 	public double getNetWage() {
 		return getTotalBasicPay()+getTotalEarning()-getTotalDeducation();
 	}
-	
-	public void print() {
-		
-		System.out.println(String.format("FirstName:%s LastName:%s",employeeInfo.getFirstName(),employeeInfo.getLastName()));
-		System.out.println("--------------------------------\n");
-	}
-	
+	 
 	public Object clone() {
 		
 		PayslipData clone=new PayslipData();

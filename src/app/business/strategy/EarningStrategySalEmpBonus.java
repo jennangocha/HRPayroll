@@ -1,4 +1,4 @@
-package app.business.abstractFactory;
+package app.business.strategy;
  
 import app.domain.Employee;
 import app.domain.PayslipPeriod;

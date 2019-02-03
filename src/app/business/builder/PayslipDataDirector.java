@@ -13,12 +13,13 @@ public class PayslipDataDirector {
 		this.builder=builder;
 	}
 	
-	public void constructPayslipData(Employee e,PayslipPeriod p,IPayrollCalculationStrategyFactory strategys) {
+	public final void constructPayslipData(Employee e,PayslipPeriod p,IPayrollCalculationStrategyFactory strategys) {
 		builder.buildEmployee(e);
 		builder.buildPeriod(p);
 		builder.buildDeduction(strategys.getDeduStrategy());
 		builder.buildEarning(strategys.getEarningStrategy());
 		builder.buildBasicPay(strategys.getBasicStrategy());
+		builder.buildHook(e);
 	}
 	
 	public PayslipData getPayslipData() {

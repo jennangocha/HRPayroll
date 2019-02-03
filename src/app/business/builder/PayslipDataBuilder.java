@@ -49,6 +49,12 @@ public class PayslipDataBuilder implements IPayslipDataBuilder{
 	public PayslipData getPayslipData() {
 		// TODO Auto-generated method stub
 		return payslipData;
-	}		
-	 
+	}
+
+	@Override
+	public void buildHook(Employee e) {
+		// TODO Auto-generated method stub
+		/*build hook*/
+	}	 
+	
 }

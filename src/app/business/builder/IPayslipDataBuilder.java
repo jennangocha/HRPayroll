@@ -15,5 +15,6 @@ public interface IPayslipDataBuilder {
 	public void buildEarning(List<IEarningStrategy> s);	
 	public void buildDeduction(List<IDeductionStrategy> s);
 	public void buildBasicPay(List<IBasicPayStrategy> s);
+	public void buildHook(Employee e);
 	public PayslipData getPayslipData();
 }

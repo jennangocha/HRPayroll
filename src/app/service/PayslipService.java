@@ -5,6 +5,7 @@ import java.util.Map;
 
 import app.business.IPaySlipWriter; 
 import app.business.prototype.PayslipData;
+import app.business.proxy.IPaySlipGenerator;
 import app.business.proxy.PaySlipGeneratorProxy;
 import app.domain.Employee;
 import app.domain.PayslipPeriod;
@@ -15,7 +16,7 @@ public class PayslipService {
  
 	public static void print(User user,List<Employee> e,PayslipPeriod period,IPaySlipWriter writer,String exportPath) {
 		
-		PaySlipGeneratorProxy payslipProxy=new PaySlipGeneratorProxy(user);
+		IPaySlipGenerator payslipProxy=new PaySlipGeneratorProxy(user);
 		
 		try {
 			Map<String, PayslipData> data=payslipProxy.generate(period, e);

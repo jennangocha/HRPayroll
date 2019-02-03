@@ -1,4 +1,4 @@
-package app.dao;
+package app.repository;
 
 import java.util.List;
 /*Owner: Jmmy*/

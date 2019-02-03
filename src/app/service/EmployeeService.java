@@ -3,9 +3,9 @@ package app.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import app.dao.DataAccessImpl;
-import app.dao.IDataAccess;
 import app.domain.Employee;
+import app.repository.DataAccessImpl;
+import app.repository.IDataAccess;
 
 public class EmployeeService {
 	private static EmployeeService instance = new EmployeeService();

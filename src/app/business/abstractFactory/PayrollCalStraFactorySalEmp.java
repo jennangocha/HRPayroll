@@ -3,12 +3,6 @@ package app.business.abstractFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.business.BasicPayStrategySalEmp;
-import app.business.DeductionStrategyLeaveEmp;
-import app.business.IBasicPayStrategy;
-import app.business.IDeductionStrategy;
-import app.business.IEarningStrategy;
-
 public class PayrollCalStraFactorySalEmp implements IPayrollCalculationStrategyFactory{
 	
 	@Override

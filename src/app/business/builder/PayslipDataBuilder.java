@@ -2,10 +2,10 @@ package app.business.builder;
 
 import java.util.List;
 
-import app.business.IBasicPayStrategy;
-import app.business.IDeductionStrategy;
-import app.business.IEarningStrategy;
 import app.business.IPayslipPeriod;
+import app.business.abstractFactory.IBasicPayStrategy;
+import app.business.abstractFactory.IDeductionStrategy;
+import app.business.abstractFactory.IEarningStrategy;
 import app.business.prototype.PayslipData;
 import app.domain.Employee;
 import app.domain.PayslipPeriod;

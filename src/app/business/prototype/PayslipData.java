@@ -10,6 +10,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import app.business.*;
+import app.business.abstractFactory.IBasicPayStrategy;
+import app.business.abstractFactory.IDeductionStrategy;
+import app.business.abstractFactory.IEarningStrategy;
 import app.domain.Employee;
 import app.domain.PayslipInfo;
 import app.domain.PayslipPeriod;

@@ -3,7 +3,7 @@ package app.domain;
 import java.time.LocalDate;
 import java.util.Date;
 
-import app.business.IEmployeePayslip;
+import app.business.visitor.IEmployeePayslip;
 import app.business.visitor.IPayslipVisitor;
 
 /**

@@ -11,23 +11,23 @@ import app.business.visitor.IPayslipVisitor;
  * */
 public abstract class Employee implements IEmployeePayslip, Cloneable{
 
-	private String empCode;
-	private String firstName;
-	private String lastName;
-	private String zipcode;
-	private String phone;
-	private String email;
-	private LocalDate dateOfBirth;
-	private String ssn;
-	private String position;
-	private LocalDate joinDate;
-	private LocalDate resignDate;
-	private Boolean isRegign;
-	private Boolean isPermanent;
-	private Address address;
-	private Department department;
-	private Branch branch;
-	private Double basicSalary;
+	protected String empCode;
+	protected String firstName;
+	protected String lastName;
+	protected String zipcode;
+	protected String phone;
+	protected String email;
+	protected LocalDate dateOfBirth;
+	protected String ssn;
+	protected String position;
+	protected LocalDate joinDate;
+	protected LocalDate resignDate;
+	protected Boolean isRegign;
+	protected Boolean isPermanent;
+	protected Address address;
+	protected Department department;
+	protected Branch branch;
+	protected Double basicSalary;
 
 	public Employee() {}
 	

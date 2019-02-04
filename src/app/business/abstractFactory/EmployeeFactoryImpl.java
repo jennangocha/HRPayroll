@@ -16,6 +16,11 @@ import app.service.IAddressService;
 import app.service.IBranchListService;
 import app.service.IDepartmentListService;
 
+/**
+ * 
+ * @author luungocha bui
+ *
+ */
 public class EmployeeFactoryImpl implements EmployeeFactory {
 
 	private static EmployeeFactory empFactory = new EmployeeFactoryImpl();

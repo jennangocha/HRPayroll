@@ -5,6 +5,11 @@ import java.util.List;
 
 import app.domain.Branch;
 
+/**
+ * 
+ * @author luungocha bui
+ *
+ */
 public class BranchData {
 
 	public static List<Branch> loadData() {

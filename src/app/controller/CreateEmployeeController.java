@@ -27,6 +27,11 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+/**
+ * 
+ * @author luungocha bui
+ *
+ */
 public class CreateEmployeeController {
 
     @FXML
@@ -162,6 +167,7 @@ public class CreateEmployeeController {
     private List<String> jobTypes = new ArrayList<String>();
     private ObservableList<String> jobTypeObserver;
     private IEmployeeService employeeService = EmployeeServiceImpl.getInstance();
+    private EmployeeInfoController empInfoController = EmployeeInfoController.getInstance();
     
     @FXML
     private void initialize() {
@@ -191,6 +197,8 @@ public class CreateEmployeeController {
     void onSaveAction(ActionEvent event) {
     	Employee e = prepareDataSave();
     	employeeService.addNewEmployee(e);
+    	System.out.println(e.getIsPermenent());
+
     }
 
     private Employee prepareDataSave() {
@@ -214,7 +222,6 @@ public class CreateEmployeeController {
     	LocalDate joindate = fxdate_joinDate.getValue();
     	LocalDate resigndate = fxdate_resignDate.getValue();
     	
-    	//Address address = new Address(street, city, zipcode, state, country);
     	EmployeeFactory empFactory = EmployeeFactoryImpl.getFactory();
     	Employee employee = empFactory.createEmployee(jobtype,  employeeCode, firstName, lastName,
     			 phone,  email,  dob,  ssn,  position,  joindate,

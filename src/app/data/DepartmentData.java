@@ -5,6 +5,11 @@ import java.util.List;
 
 import app.domain.Department;
 
+/**
+ * 
+ * @author luungocha bui
+ *
+ */
 public class DepartmentData {
 	
 	public static List<Department> loadData() {

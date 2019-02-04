@@ -23,4 +23,12 @@ public enum DepartmentList {
 		return listDepartmentName;
 	}
 	
+	public List<Department> getListOfDepartment() {
+		return listOfDepartment;
+	}
+
+	public void setListOfDepartment(List<Department> listOfDepartment) {
+		this.listOfDepartment = listOfDepartment;
+	}
+	
 }

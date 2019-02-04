@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.data.BranchData;
-
+/**
+ * 
+ * @author luungocha bui
+ *
+ */
 public enum BranchList {
 	INSTANCE;
 	
 	List<Branch> listOfBranch = new ArrayList<Branch>();
-	
+
 	BranchList() {
 		this.listOfBranch = BranchData.loadData();
 	}
@@ -22,5 +26,11 @@ public enum BranchList {
 		return listBranchName;
 	}
 	
-	
+	public List<Branch> getListOfBranch() {
+		return listOfBranch;
+	}
+
+	public void setListOfBranch(List<Branch> listOfBranch) {
+		this.listOfBranch = listOfBranch;
+	}
 }

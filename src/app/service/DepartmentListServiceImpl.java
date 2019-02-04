@@ -3,6 +3,7 @@ package app.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.domain.Department;
 import app.repository.DepartmentListRepositoryImpl;
 import app.repository.IDepartmentListRepository;
 
@@ -20,6 +21,11 @@ public class DepartmentListServiceImpl implements IDepartmentListService{
 	public List<String> getDepartmentList() {
 		listDepartmentName = departmentRepository.getDepartmentNameList();
 		return listDepartmentName;
+	}
+
+	@Override
+	public Department getDepartmentByName(String departmentName) {
+		return departmentRepository.getDepartmentbyName(departmentName);
 	}
 
 

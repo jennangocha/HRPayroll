@@ -1,5 +1,8 @@
 package app.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 
  * @author luungochabui
@@ -10,6 +13,7 @@ public class Branch {
 	
 	private String branchCode;
 	private String branchName;
+	List<Department> listDepartment = new ArrayList<Department>();
 	
 	public Branch() {
 		this.branchCode = "BRANCH1";
@@ -36,5 +40,15 @@ public class Branch {
 	public void setBranchName(String branchName) {
 		this.branchName = branchName;
 	}
+
+	public List<Department> getListDepartment() {
+		return listDepartment;
+	}
+
+	public void setListDepartment(List<Department> listDepartment) {
+		this.listDepartment = listDepartment;
+	}
+	
+	
 
 }

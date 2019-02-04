@@ -14,7 +14,7 @@ import app.domain.Employee;
 import app.domain.PayslipPeriod;
 import app.domain.User;
 import app.exceptions.AuthenticationError;
-import app.service.EmployeeService;
+import app.service.EmployeeServiceImpl;
 import app.service.UserService;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -45,7 +45,7 @@ public class SalaryReport implements Initializable{
 			
 			int index= Integer.valueOf(selectedIndices.get(0).toString());
 			System.out.println(index);
-			List<Employee> e=EmployeeService.getInstance().getAllEmployee();
+			List<Employee> e=EmployeeServiceImpl.getInstance().getAllEmployee();
 			String employeeCode=e.get(index).getEmpCode();
 			user=UserService.getInstance().getUserByUsername("admin");
 			PayslipPeriod period=new PayslipPeriod(java.sql.Date.valueOf("2019-01-01"),java.sql.Date.valueOf("2019-02-28"));
@@ -90,7 +90,7 @@ public class SalaryReport implements Initializable{
 	public void payslipScreen() {
 		frmDate.setValue(LocalDate.of(2019, 01, 1));
 		toDate.setValue(LocalDate.of(2019, 2, 28));
-		List<Employee> e=EmployeeService.getInstance().getAllEmployee();
+		List<Employee> e=EmployeeServiceImpl.getInstance().getAllEmployee();
 		for(int i=0;i<e.size();i++)
 		empList.getItems().add(e.get(i).getFirstName());
 		

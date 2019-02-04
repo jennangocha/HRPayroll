@@ -11,7 +11,6 @@ import app.controller.Reports;
 import app.domain.PayslipPeriod;
 import app.domain.User;
 import app.exceptions.AuthenticationError;
-import app.service.EmployeeService;
 import app.service.UserService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

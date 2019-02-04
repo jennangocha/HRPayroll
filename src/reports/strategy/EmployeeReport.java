@@ -6,7 +6,7 @@ import java.util.List;
 import app.data.EmployeeData;
 import app.domain.Department;
 import app.domain.Employee;
-import app.service.EmployeeService;
+import app.service.EmployeeServiceImpl;
 import db.adapter.Database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,7 +32,7 @@ public class EmployeeReport implements Ireports{
         TableColumn department =new TableColumn("Department");
         TableColumn branch =new TableColumn("Branch");
         
-        EmployeeService empService = EmployeeService.getInstance();
+        EmployeeServiceImpl empService = EmployeeServiceImpl.getInstance();
        
         tbl1.getColumns().addAll(empCode, firstName,lastName,position,department,branch);
         
@@ -55,9 +55,9 @@ public class EmployeeReport implements Ireports{
         return tbl1;
 	}
 	public void getExportReport(String name) {
-String[] column= {"Employee Code","Employee Name","Designation","Department","Branch"};
+		String[] column= {"Employee Code","Employee Name","Designation","Department","Branch"};
 		
-		EmployeeService empService = EmployeeService.getInstance();
+		EmployeeServiceImpl empService = EmployeeServiceImpl.getInstance();
 		String[][] data= new String[empService.getAllEmployee().size()][column.length];
 		int index=0;
 		for(int i=0;i< empService.getAllEmployee().size();i++) {

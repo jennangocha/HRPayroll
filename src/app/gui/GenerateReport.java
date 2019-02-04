@@ -2,10 +2,17 @@ package app.gui;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Map;
 
+import app.business.prototype.PayslipData;
+import app.business.proxy.IPaySlipGenerator;
+import app.business.proxy.PaySlipGeneratorProxy;
 import app.controller.Reports;
+import app.domain.PayslipPeriod;
 import app.domain.User;
+import app.exceptions.AuthenticationError;
 import app.service.EmployeeService;
+import app.service.UserService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,7 +39,7 @@ import reports.strategy.BranchReport;
 import reports.strategy.DepartmentReport;
 import reports.strategy.EmployeeReport;
 import reports.strategy.SalaryReport; 
-/*Owner: Jmmy*/
+/*Owner: Chinmoy*/
 public class GenerateReport  extends Stage  {
 
 	private User user;
@@ -41,23 +48,19 @@ public class GenerateReport  extends Stage  {
 	private Button deptReport=new Button("Department Report");
 	private Button branchReport=new Button("Branch Report");
 	private Button salaryReport=new Button("Salary Report");
+	private Button monthlyReport=new Button("Payslip Report");
 	
 	private Label lblTitle=new Label("Generate Reports");
-	
 
-	
 	private GridPane grid = null;
-	
-	
-	
+		
 	public GenerateReport(User user,Stage stage) {
 		 setGUI();
 		 setEvent();
 	}
 	
 	private void setGUI() {
-		lblTitle.setStyle("-fx-font: 24 arial;");
-		
+		lblTitle.setStyle("-fx-font: 24 arial;");		
 		
 		grid = new GridPane();
 		grid.setAlignment(Pos.TOP_CENTER);
@@ -67,10 +70,10 @@ public class GenerateReport  extends Stage  {
 		grid.add(lblTitle,1, 1);
 		grid.add(empReport, 1, 2);
 		grid.add(deptReport, 1, 3);
-		grid.add(branchReport,1, 4);
-		
+		grid.add(branchReport,1, 4);		
 		grid.add(salaryReport,1, 5);
-				
+		grid.add(monthlyReport,1, 6);
+		
 		Scene scene = new Scene(grid, 700, 500);
 
 		setScene(scene);
@@ -105,6 +108,17 @@ public class GenerateReport  extends Stage  {
 				showReport(r);							
 			}
 		});
+		
+		monthlyReport.setOnAction(new EventHandler<ActionEvent>() {			
+			@Override
+			public void handle(ActionEvent event) {
+				//Reports r=new Reports(new SalaryReport());
+				//showReport(r);	
+				//User user=new User("admin","admin");
+				showMonthlyReport();
+				
+			}
+		});
 	}
 	private void showReport(Reports r) {
 		try {
@@ -130,5 +144,25 @@ public class GenerateReport  extends Stage  {
 			a.showAndWait();
 		}		
 	}
-
+	private void showMonthlyReport() {
+		try {
+			
+			FXMLLoader fxmlLoader = new 
+			FXMLLoader(getClass().getResource("/fxml/SalaryReport.fxml"));
+	
+			//fxmlLoader.setController(r);
+			Parent root1 = (Parent) fxmlLoader.load();
+			Stage stage = new Stage();			
+			
+			stage.initModality(Modality.APPLICATION_MODAL);
+			stage.setTitle("Report");
+			stage.setScene(new Scene(root1));
+			stage.setResizable(false);
+			stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			e.getMessage();
+		}		
+	}
 }

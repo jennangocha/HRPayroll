@@ -6,5 +6,7 @@ public class DefaultData {
 		
 		UserData.load();
 		EmployeeData.load();
+		BranchData.loadData();
+		DepartmentData.loadData();
 	}
 }

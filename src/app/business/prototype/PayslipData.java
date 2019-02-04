@@ -15,7 +15,8 @@ import app.business.strategy.IEarningStrategy;
 import app.domain.Employee;
 import app.domain.PayslipInfo;
 import app.domain.PayslipPeriod;
-import app.domain.StrategyType; 
+import app.domain.StrategyType;
+import app.exceptions.PayslipInfoException; 
 /*Owner: Jmmy*/
 
 @XmlRootElement(name = "payslipdata")
@@ -78,7 +79,11 @@ public class PayslipData implements IPrototype{
 		 }
 	}	 
 	
-	public void add(PayslipInfo e) {
+	public void add(PayslipInfo e) throws PayslipInfoException {
+		
+		if(payslipInfo.contains(e))
+			throw new PayslipInfoException("Payslip Info already exists");
+		
 		payslipInfo.add(e);
 	}
 	

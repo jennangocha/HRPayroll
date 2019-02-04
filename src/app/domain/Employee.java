@@ -218,5 +218,14 @@ public abstract class Employee implements IEmployeePayslip, Cloneable{
 		return branch.getBranchName();
 	}
 	@Override
+	public String toString() {
+		return "Employee [empCode=" + empCode + ", firstName=" + firstName + ", lastName=" + lastName + ", zipcode="
+				+ zipcode + ", phone=" + phone + ", email=" + email + ", dateOfBirth=" + dateOfBirth + ", ssn=" + ssn
+				+ ", position=" + position + ", joinDate=" + joinDate + ", resignDate=" + resignDate + ", isRegign="
+				+ isRegign + ", isPermanent=" + isPermanent + ", address=" + address + ", department=" + department
+				+ ", branch=" + branch + ", basicSalary=" + basicSalary + "]";
+	}
+
+	@Override
 	public abstract void accept(IPayslipVisitor visitor);
 }

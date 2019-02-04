@@ -11,11 +11,13 @@ import app.business.strategy.IEarningStrategy;
 /*Owner: Jmmy*/
 public class PayrollCalStraFactorySalEmp implements IPayrollCalculationStrategyFactory{
 	
+	List<IDeductionStrategy> deduction= new ArrayList<IDeductionStrategy>();
+	List<IEarningStrategy> earning= new ArrayList<IEarningStrategy>();
+	List<IBasicPayStrategy> basicpay= new ArrayList<IBasicPayStrategy>();	
+	
 	@Override
 	public List<IDeductionStrategy> getDeduStrategy() {
-		// TODO Auto-generated method stub
-		List<IDeductionStrategy> deduction= new ArrayList<IDeductionStrategy>();
-		
+		// TODO Auto-generated method stub		
 		deduction.add(new DeductionStrategyLeaveEmp());
 		 
 		return deduction;
@@ -23,16 +25,14 @@ public class PayrollCalStraFactorySalEmp implements IPayrollCalculationStrategyF
 
 	@Override
 	public List<IEarningStrategy> getEarningStrategy() {
-		// TODO Auto-generated method stub
-		List<IEarningStrategy> earning= new ArrayList<IEarningStrategy>();
+		// TODO Auto-generated method stub		
 		/*no earning*/
 		return earning;
 	}
 
 	@Override
 	public List<IBasicPayStrategy> getBasicStrategy() {
-		// TODO Auto-generated method stub
-		List<IBasicPayStrategy> basicpay= new ArrayList<IBasicPayStrategy>();		
+		// TODO Auto-generated method stub		
 		
 		basicpay.add(new BasicPayStrategySalEmp());
 		

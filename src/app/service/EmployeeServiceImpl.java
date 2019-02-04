@@ -3,33 +3,40 @@ package app.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import app.dao.DataAccessImpl;
-import app.dao.IDataAccess;
 import app.domain.Employee;
+import app.repository.DataAccessImpl;
+import app.repository.IDataAccess;
 
-public class EmployeeService {
-	private static EmployeeService instance = new EmployeeService();
+public class EmployeeServiceImpl implements IEmployeeService{
+	private static EmployeeServiceImpl instance = new EmployeeServiceImpl();
 	
-	private IDataAccess<String, Employee> dataAccess = new DataAccessImpl<String, Employee>();
+	private IDataAccess<String, Employee> dataAccess;
 	
-	private EmployeeService() {}
+	private EmployeeServiceImpl() {
+		dataAccess = new DataAccessImpl<String, Employee>();
+	}
 	
-	public static EmployeeService getInstance() { 
+	public static EmployeeServiceImpl getInstance() { 
 		return instance; 
 	}
 	
+	@Override
 	public void addNewEmployee(Employee emp) {
 		 dataAccess.add(emp.getEmpCode(), emp);
+		 System.out.println("employee " + emp.toString() + "is added");
 	}
 	
+	@Override
 	public Employee getEmployeeById(String employeeCode) {
 		return dataAccess.get(employeeCode);
 	}
 	
+	@Override
 	public List<Employee> getAllEmployee(){
 		return dataAccess.getAll();
 	}
 	
+	@Override
 	public List<Employee> getAllEmployee(String Department,String Branch,String query){
 		
 		System.out.println("All employee in db count: "+ getAllEmployee().size());

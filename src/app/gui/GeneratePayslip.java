@@ -11,7 +11,7 @@ import app.domain.Employee;
 import app.domain.EmployeeInfoPayslipDisplay;
 import app.domain.PayslipPeriod;
 import app.domain.User;
-import app.service.EmployeeService;
+import app.service.EmployeeServiceImpl;
 import app.service.PayslipService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -261,7 +261,7 @@ public class GeneratePayslip  extends Stage {
 	}
 	
 	private List<Employee> getEmployeeList(){
-		return EmployeeService.getInstance().getAllEmployee(txtDept.getText().trim(), txtBranch.getText().trim(), txtSearch.getText().trim());
+		return EmployeeServiceImpl.getInstance().getAllEmployee(txtDept.getText().trim(), txtBranch.getText().trim(), txtSearch.getText().trim());
 	}
 	
 	private PayslipPeriod getPayPeriod() {

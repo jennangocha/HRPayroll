@@ -1,8 +1,8 @@
 package app.service;
 
 
-import app.dao.*;
 import app.domain.*;
+import app.repository.*;
 /*Owner: Jmmy*/
 public class UserService {
 private static UserService instance = new UserService();

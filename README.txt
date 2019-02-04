@@ -8,9 +8,9 @@ Responsible for developing "Generate Payslip" use case for Payroll framework.Des
 CHINMOY KANTI DHAR (ID: 983926)
 Responsible for developing "Report Module" use case for Payroll framework. Design and developed report creation framework which is easy to use and extend.
 Used Design Pattern:
-	1. Singleton
-	2. Factory
-	3. Strategy
-	4. Template
-	5. Facade
-	6. Adapter
+	1. Singleton - created the connection String for db connection
+	2. Factory - to choose the export report type(excel,PDF)
+	3. Strategy - to display four type report (Branch, Department, Employee, Salary) data in a same window
+	4. Template - to create different types of Payslip PDF 
+	5. Facade - used to create pdf and excel object based
+	6. Adapter - for database

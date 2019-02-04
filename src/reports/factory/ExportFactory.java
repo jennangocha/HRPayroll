@@ -1,6 +1,6 @@
 package reports.factory;
 
-public class ExportFactory {
+public class ExportFactory implements IFactory{
 	 public ExportReport getReport(String exportType){
 	      if(exportType == null){
 	         return null;

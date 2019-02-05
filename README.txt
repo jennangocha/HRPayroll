@@ -39,3 +39,11 @@ Used Design Pattern:
 	4. Template - to create different types of Payslip PDF 
 	5. Facade - used to create pdf and excel object based
 	6. Adapter - for database
+	
+----------------
+Luu Ngoc Ha Bui (ID: 986638)
+Responsible for developing "Employee Management" use case for Payroll framework. Design and developed structure of Payroll system includes domain data, repository, service, business, controller, view, and implement creation framework for Employee Management
+Used design pattern:
+1. Singleton
+2. Factory Method
+3. Prototype

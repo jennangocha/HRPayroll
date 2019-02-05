@@ -3,6 +3,31 @@ TEAM 1
 PHYO LIN TUN (ID: 986702)
 
 Responsible for developing "Generate Payslip" use case for Payroll framework.Design and develop Payslip data creation framework that is easy to extend by application developer. Find a most suitable design solution to solve frequent changes in payroll calculation strategy for different type of employee. Develop GUI and linked up with the framework to demonstrate extendibility. Delivered complete UML for "Generate Payslip" use case.
+
+Participants (Design Pattern)
+1.	Proxy (IPayslipGenerator, PayslipGeneratorProxy, PayslipGenerator)
+	Point of access to the framework and generated the payslip data in hashmap format. 
+	User validation and varifcation.
+	
+2.	Builder (IPayslipDataBuilder, PayslipDataBuilder, PayslipDataDirector)
+	Responsible to build the generic Payslip data based on defined payslip calculation strategies for different employee type.
+	Provide hook method for extension.
+
+3.	Visitor (IEmployeePayslip, IPayslipVisitor, PayslipDataVisitor)
+	To link different payslip calculation strategies with payslip data builder for different type of employee.
+
+4.	Abstract factory (IPayrollCalculationStrategyFactory, PayrollCalStraFactoryCommEmp, PayrollCalStraFactorySalEmp, PayrollCalStraFactorySalEmp)
+	Define collections of payslip calculation strategies for different employee type.
+
+5.	Prototype (IPrototype, PayslipData)
+	Create cloneable payslip data.
+
+6.	Singleton (PayslipGenerator)
+	Create thread safe payslip data generating engine.
+
+7.	Strategy (IEarningStrategy, EarningStrategySalEmpBonus, IDeductionStrategy, DeductionStrategyLeaveEmp, IBasicPayStrategy, BasicPayStrategyCommEmp, BasicPayStrategySalEmp, BasicPayStrategyHourEmp)
+	Payslip calculation implementations.
+
 --------------
 
 CHINMOY KANTI DHAR (ID: 983926)
